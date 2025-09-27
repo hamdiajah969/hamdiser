@@ -1,10 +1,10 @@
-@extends('admin.layouts.admin')
+@extends('operator.layouts.operator')
 @section('content')
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-        <h5 class="fw-bold text-dark">Data Profile Sekolah</h5>
-        <a href="{{ route('admin.profile_sekolah.create') }}"
+        <h5 class="fw-bold text-dark">Data Berita</h5>
+        <a href="{{ route('operator.berita.create') }}"
            class="btn btn-primary rounded-3 fw-bold"
            style="background:#0d47a1;">
             <i class=""></i> Tambah
@@ -31,45 +31,37 @@
                 <thead class="table-light">
                     <tr class="text-center">
                         <th width="5%">ID</th>
-                        <th>Nama Sekolah</th>
-                        <th>Kepala Sekolah</th>
-                        <th>NPSN</th>
-                        <th>Alamat</th>
-                        <th width="10%">Foto</th>
-                        <th width="10%">Logo</th>
+                        <th>Judul</th>
+                        <th>Isi</th>
+                        <th>Tanggal</th>
+                        <th>Gambar</th>
+                        <th>Penulis</th>
                         <th width="20%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($profileSekolahs as $profileSekolah)
+                    @forelse($beritas as $berita)
                         <tr class="text-center align-middle">
-                            <td>{{ $profileSekolah->id_profil }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->nama_sekolah, 30) }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->kepala_sekolah, 30) }}</td>
-                            <td class="">{{ $profileSekolah->npsn }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->alamat, 50) }}</td>
+                            <td>{{ $berita->id_berita }}</td>
+                            <td class="">{{ Str::limit($berita->judul, 30) }}</td>
+                            <td class="">{{ Str::limit($berita->isi, 50) }}</td>
+                            <td class="">{{ $berita->tanggal }}</td>
                             <td class="">
-                                @if($profileSekolah->foto)
-                                    <img src="{{ asset('storage/' . $profileSekolah->foto) }}" alt="Foto" width="50" height="50" class="rounded">
+                                @if($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" width="50" height="50" class="rounded">
                                 @else
                                     <span class="badge bg-secondary">Tidak ada</span>
                                 @endif
                             </td>
-                            <td class="">
-                                @if($profileSekolah->logo)
-                                    <img src="{{ asset('storage/' . $profileSekolah->logo) }}" alt="Logo" width="50" height="50" class="rounded">
-                                @else
-                                    <span class="badge bg-secondary">Tidak ada</span>
-                                @endif
-                            </td>
+                            <td class="">{{ $berita->user->name }}</td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('admin.profile_sekolah.edit', Crypt::encrypt($profileSekolah->id_profil)) }}"
+                                    <a href="{{ route('operator.berita.edit', Crypt::encrypt($berita->id_berita)) }}"
                                        class="btn btn-sm btn-warning fw-bold"
                                        data-bs-toggle="tooltip" title="Edit">
                                         <i class=""></i> Edit
                                     </a>
-                                    <form action="{{ route('admin.profile_sekolah.destroy', Crypt::encrypt($profileSekolah->id_profil)) }}"
+                                    <form action="{{ route('operator.berita.destroy', Crypt::encrypt($berita->id_berita)) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin ingin menghapus?')"
                                           class="d-inline">
@@ -86,7 +78,7 @@
                         </tr>
                     @empty
                         <tr class="text-center">
-                            <td colspan="8">Tidak ada data profile sekolah.</td>
+                            <td colspan="7">Tidak ada data berita.</td>
                         </tr>
                     @endforelse
                 </tbody>

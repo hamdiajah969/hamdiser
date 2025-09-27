@@ -10,7 +10,7 @@
                 <div class="card-body position-relative overflow-hidden">
                     <i class="bi bi-person fa-3x position-absolute opacity-25 top-50 end-0 translate-middle-y me-3"></i>
                     <p class="mb-1 fw-bold">Siswa</p>
-                    <h3 class="mb-0"></h3>
+                    <h3 class="mb-0">{{ $countSiswa }}</h3>
                     <small class="text-light">Total Siswa</small>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="card-body position-relative overflow-hidden">
                     <i class="bi bi-trophy fa-3x position-absolute opacity-25 top-50 end-0 translate-middle-y me-3"></i>
                     <p class="mb-1 fw-bold">Ekstrakulikuler</p>
-                    <h3 class="mb-0"></h3>
+                    <h3 class="mb-0">{{ $countEkstrakulikuler }}</h3>
                     <small class="text-light">Total Ekstrakulikuler</small>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="card-body position-relative overflow-hidden">
                     <i class="bi bi-images fa-3x position-absolute opacity-25 top-50 end-0 translate-middle-y me-3"></i>
                     <p class="mb-1 fw-bold">Galeri</p>
-                    <h3 class="mb-0"></h3>
+                    <h3 class="mb-0">{{ $countGaleri }}</h3>
                     <small class="text-light">Total Galeri</small>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="card-body position-relative overflow-hidden">
                     <i class="bi bi-newspaper fa-3x position-absolute opacity-25 top-50 end-0 translate-middle-y me-3"></i>
                     <p class="mb-1 fw-bold">Berita</p>
-                    <h3 class="mb-0"></h3>
+                    <h3 class="mb-0">{{ $countBerita }}</h3>
                     <small class="text-light">Total Berita</small>
                 </div>
             </div>

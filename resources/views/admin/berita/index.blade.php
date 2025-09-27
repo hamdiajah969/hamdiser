@@ -7,7 +7,7 @@
         <a href="{{ route('admin.berita.create') }}"
            class="btn btn-primary rounded-3 fw-bold"
            style="background:#0d47a1;">
-            <i class="fas fa-plus"></i> Tambah Berita
+            <i class=""></i> Tambah
         </a>
     </div>
 
@@ -59,7 +59,7 @@
                                     <a href="{{ route('admin.berita.edit', Crypt::encrypt($berita->id_berita)) }}"
                                        class="btn btn-sm btn-warning fw-bold"
                                        data-bs-toggle="tooltip" title="Edit">
-                                        <i class="fas fa-edit"></i> Edit
+                                        <i class=""></i> Edit
                                     </a>
                                     <form action="{{ route('admin.berita.destroy', Crypt::encrypt($berita->id_berita)) }}"
                                           method="POST"

@@ -20,19 +20,19 @@
                 <h5 class="fw-bold mb-3">INFO SEKOLAH</h5>
                 <ul class="list-unstyled">
                     <li class="d-flex align-items-start mb-3">
-                        <img src="https://via.placeholder.com/80" alt="Info 1" class="img-fluid me-3">
+                        {{-- <img src="" alt="Info 1" class="img-fluid me-3"> --}}
                         <div>
                             <small>27 JUL 2025</small>
                             <h6>Pembagian Ruang Seleksi...</h6>
-                            <p class="text-muted small">Berikut ini pembagian ruang seleksi mata pelajaran pilihan...</p>
+                            <p class="text-white small">Berikut ini pembagian ruang seleksi mata pelajaran pilihan...</p>
                         </div>
                     </li>
                     <li class="d-flex align-items-start mb-3">
-                        <img src="https://via.placeholder.com/80" alt="Info 2" class="img-fluid me-3">
+                        {{-- <img src="" alt="Info 2" class="img-fluid me-3"> --}}
                         <div>
                             <small>20 JUL 2025</small>
                             <h6>Pengaturan Waktu KBM...</h6>
-                            <p class="text-muted small">Diberitahukan kepada seluruh murid dan guru SMAN 1 Yogyakarta...</p>
+                            <p class="text-white small">Diberitahukan kepada seluruh murid dan guru SMAN 1 Yogyakarta...</p>
                         </div>
                     </li>
                 </ul>
@@ -42,19 +42,19 @@
                 <h5 class="fw-bold mb-3">AGENDA SEKOLAH</h5>
                 <ul class="list-unstyled">
                     <li class="d-flex align-items-start mb-3">
-                        <img src="https://via.placeholder.com/80" alt="Agenda 1" class="img-fluid me-3">
+                        {{-- <img src="" alt="Agenda 1" class="img-fluid me-3"> --}}
                         <div>
                             <small>18 APR 2020</small>
                             <h6>Surat Edaran Kelulusan...</h6>
-                            <p class="text-muted small">Surat Edaran Kelulusan Siswa Kelas XII Tahun Ajaran 2019/2020...</p>
+                            <p class="text-white small">Surat Edaran Kelulusan Siswa Kelas XII Tahun Ajaran 2019/2020...</p>
                         </div>
                     </li>
                     <li class="d-flex align-items-start mb-3">
-                        <img src="https://via.placeholder.com/80" alt="Agenda 2" class="img-fluid me-3">
+                        {{-- <img src="" alt="Agenda 2" class="img-fluid me-3"> --}}
                         <div>
                             <small>13 MEI 2019</small>
                             <h6>Pembagian Laporan Hasil...</h6>
-                            <p class="text-muted small">Pembagian laporan hasil belajar siswa akan dilaksanakan pada...</p>
+                            <p class="text-white small">Pembagian laporan hasil belajar siswa akan dilaksanakan pada...</p>
                         </div>
                     </li>
                 </ul>

@@ -76,4 +76,36 @@ Route::middleware(['admin'])->group(function (){
 Route::middleware(['operator'])->group(function (){
     Route::get('/operator/dashboard', [OperatorController::class, 'dashboard'])->name('operator.dashboard');
 
+    //siswa
+    Route::get('/operator/siswa', [OperatorController::class, 'siswaindex'])->name('operator.siswa.index');
+    Route::get('/operator/siswa/create', [OperatorController::class, 'siswaCreate'])->name('operator.siswa.create');
+    Route::post('/operator/siswa', [OperatorController::class, 'siswaStore'])->name('operator.siswa.store');
+    Route::get('/operator/siswa/edit/{id}',[OperatorController::class,'siswaEdit'])->name('operator.siswa.edit');
+    Route::put('/operator/siswa/edit/{id}',[OperatorController::class, 'siswaUpdate'])->name('operator.siswa.update');
+    Route::delete('/operator/siswa/{id}', [OperatorController::class, 'siswaDestroy'])->name('operator.siswa.destroy');
+
+    //ekstrakulikuler
+    Route::get('/operator/ekstrakulikuler', [OperatorController::class, 'ekstrakulikulerIndex'])->name('operator.ekstrakulikuler.index');
+    Route::get('/operator/ekstrakulikuler/create', [OperatorController::class, 'ekstrakulikulerCreate'])->name('operator.ekstrakulikuler.create');
+    Route::post('/operator/ekstrakulikuler', [OperatorController::class, 'ekstrakulikulerStore'])->name('operator.ekstrakulikuler.store');
+    Route::get('/operator/ekstrakulikuler/edit/{id}',[OperatorController::class,'ekstrakulikulerEdit'])->name('operator.ekstrakulikuler.edit');
+    Route::put('/operator/ekstrakulikuler/edit/{id}',[OperatorController::class, 'ekstrakulikulerUpdate'])->name('operator.ekstrakulikuler.update');
+    Route::delete('/operator/ekstrakulikuler/{id}', [OperatorController::class, 'ekstrakulikulerDestroy'])->name('operator.ekstrakulikuler.destroy');
+
+    //berita
+    Route::get('/operator/berita', [OperatorController::class, 'beritaIndex'])->name('operator.berita.index');
+    Route::get('/operator/berita/create', [OperatorController::class, 'beritaCreate'])->name('operator.berita.create');
+    Route::post('/operator/berita', [OperatorController::class, 'beritaStore'])->name('operator.berita.store');
+    Route::get('/operator/berita/edit/{id}',[OperatorController::class,'beritaEdit'])->name('operator.berita.edit');
+    Route::put('/operator/berita/edit/{id}',[OperatorController::class, 'beritaUpdate'])->name('operator.berita.update');
+    Route::delete('/operator/berita/{id}', [OperatorController::class, 'beritaDestroy'])->name('operator.berita.destroy');
+
+    //galeri
+    Route::get('/operator/galeri', [OperatorController::class, 'galeriIndex'])->name('operator.galeri.index');
+    Route::get('/operator/galeri/create', [OperatorController::class, 'galeriCreate'])->name('operator.galeri.create');
+    Route::post('/operator/galeri', [OperatorController::class, 'galeriStore'])->name('operator.galeri.store');
+    Route::get('/operator/galeri/edit/{id}',[OperatorController::class,'galeriEdit'])->name('operator.galeri.edit');
+    Route::put('/operator/galeri/edit/{id}',[OperatorController::class, 'galeriUpdate'])->name('operator.galeri.update');
+    Route::delete('/operator/galeri/{id}', [OperatorController::class, 'galeriDestroy'])->name('operator.galeri.destroy');
+
 });

@@ -1,10 +1,10 @@
-@extends('admin.layouts.admin')
+@extends('operator.layouts.operator')
 @section('content')
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-        <h5 class="fw-bold text-dark">Data Profile Sekolah</h5>
-        <a href="{{ route('admin.profile_sekolah.create') }}"
+        <h5 class="fw-bold text-dark">Data Galeri</h5>
+        <a href="{{ route('operator.galeri.create') }}"
            class="btn btn-primary rounded-3 fw-bold"
            style="background:#0d47a1;">
             <i class=""></i> Tambah
@@ -31,45 +31,41 @@
                 <thead class="table-light">
                     <tr class="text-center">
                         <th width="5%">ID</th>
-                        <th>Nama Sekolah</th>
-                        <th>Kepala Sekolah</th>
-                        <th>NPSN</th>
-                        <th>Alamat</th>
-                        <th width="10%">Foto</th>
-                        <th width="10%">Logo</th>
+                        <th>Judul</th>
+                        <th>Kategori</th>
+                        <th>Tanggal</th>
+                        <th width="10%">File</th>
                         <th width="20%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($profileSekolahs as $profileSekolah)
+                    @forelse($galeris as $galeri)
                         <tr class="text-center align-middle">
-                            <td>{{ $profileSekolah->id_profil }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->nama_sekolah, 30) }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->kepala_sekolah, 30) }}</td>
-                            <td class="">{{ $profileSekolah->npsn }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->alamat, 50) }}</td>
+                            <td>{{ $galeri->id_galeri }}</td>
+                            <td class="">{{ Str::limit($galeri->judul, 50) }}</td>
                             <td class="">
-                                @if($profileSekolah->foto)
-                                    <img src="{{ asset('storage/' . $profileSekolah->foto) }}" alt="Foto" width="50" height="50" class="rounded">
-                                @else
-                                    <span class="badge bg-secondary">Tidak ada</span>
-                                @endif
+                                <span class="badge bg-primary">{{ $galeri->kategori }}</span>
                             </td>
+                            <td class="">{{ $galeri->tanggal }}</td>
                             <td class="">
-                                @if($profileSekolah->logo)
-                                    <img src="{{ asset('storage/' . $profileSekolah->logo) }}" alt="Logo" width="50" height="50" class="rounded">
+                                @if($galeri->file)
+                                    @if($galeri->kategori === 'Foto')
+                                        <img src="{{ asset('storage/' . $galeri->file) }}" alt="File" width="50" height="50" class="rounded">
+                                    @else
+                                        <span class="badge bg-info">Video</span>
+                                    @endif
                                 @else
                                     <span class="badge bg-secondary">Tidak ada</span>
                                 @endif
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('admin.profile_sekolah.edit', Crypt::encrypt($profileSekolah->id_profil)) }}"
+                                    <a href="{{ route('operator.galeri.edit', Crypt::encrypt($galeri->id_galeri)) }}"
                                        class="btn btn-sm btn-warning fw-bold"
                                        data-bs-toggle="tooltip" title="Edit">
                                         <i class=""></i> Edit
                                     </a>
-                                    <form action="{{ route('admin.profile_sekolah.destroy', Crypt::encrypt($profileSekolah->id_profil)) }}"
+                                    <form action="{{ route('operator.galeri.destroy', Crypt::encrypt($galeri->id_galeri)) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin ingin menghapus?')"
                                           class="d-inline">
@@ -86,7 +82,7 @@
                         </tr>
                     @empty
                         <tr class="text-center">
-                            <td colspan="8">Tidak ada data profile sekolah.</td>
+                            <td colspan="6">Tidak ada data galeri.</td>
                         </tr>
                     @endforelse
                 </tbody>

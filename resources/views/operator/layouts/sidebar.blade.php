@@ -74,7 +74,7 @@
     <!-- header -->
     <div class="sidebar-header">
         <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="50" class="rounded-circle">
-        <span>RuangAdmin</span>
+        <span>OperatorCon</span>
     </div>
 
     <!-- menu -->
@@ -87,16 +87,16 @@
 
         <div class="sidebar-heading">Features</div>
         <li>
-            <a class="nav-link" href="{{ route('admin.siswa.index') }}"><i class="bi bi-person"></i> Siswa</a>
+            <a class="nav-link" href="{{ route('operator.siswa.index') }}"><i class="bi bi-person"></i> Siswa</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.ekstrakulikuler.index') }}"><i class="bi bi-trophy"></i> Ekstrakulikuler</a>
+            <a class="nav-link" href="{{ route('operator.ekstrakulikuler.index') }}"><i class="bi bi-trophy"></i> Ekstrakulikuler</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.galeri.index') }}"><i class="bi bi-images"></i> Galeri</a>
+            <a class="nav-link" href="{{ route('operator.galeri.index') }}"><i class="bi bi-images"></i> Galeri</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.berita.index') }}"><i class="bi bi-newspaper"></i> Berita</a>
+            <a class="nav-link" href="{{ route('operator.berita.index') }}"><i class="bi bi-newspaper"></i> Berita</a>
         </li>
 
         <li>

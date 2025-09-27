@@ -7,7 +7,7 @@
         <a href="{{ route('admin.ekstrakulikuler.create') }}"
            class="btn btn-primary rounded-3 fw-bold"
            style="background:#0d47a1;">
-            <i class="fas fa-plus"></i> Tambah Ekstrakulikuler
+            <i class=""></i>Tambah
         </a>
     </div>
 
@@ -76,8 +76,10 @@
                             </td>
                         </tr>
                     @empty
-                        <tr class="text-center">
-                            <td colspan="7">Tidak ada data ekstrakulikuler.</td>
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-3">
+                                <i class="fa-solid fa-circle-info"></i> Belum Ada Data Ekstarkulikuler
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>

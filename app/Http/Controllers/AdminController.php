@@ -70,7 +70,7 @@ class AdminController extends Controller
         // ✅ validasi dengan pengecualian id yang sedang diedit
         $validasi = $request->validate([
             'name'     => 'required|string|max:225',
-            'username' => 'required|string|max:225|unique:users,username,' . $user->getKey(),
+            'username' => 'required|string|max:225|unique:users,username,' . $user->getKey() . ',id_user',
             'password' => 'nullable|string|min:6',
             'role'     => 'required|in:admin,operator',
         ]);
