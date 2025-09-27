@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\OperatorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Controller::class, 'home'])->name('layouts.home');
@@ -70,4 +71,9 @@ Route::middleware(['admin'])->group(function (){
     Route::get('/admin/berita/edit/{id}',[AdminController::class,'beritaEdit'])->name('admin.berita.edit');
     Route::put('/admin/berita/edit/{id}',[AdminController::class, 'beritaUpdate'])->name('admin.berita.update');
     Route::delete('/admin/berita/{id}', [AdminController::class, 'beritaDestroy'])->name('admin.berita.destroy');
+});
+
+Route::middleware(['operator'])->group(function (){
+    Route::get('/operator/dashboard', [OperatorController::class, 'dashboard'])->name('operator.dashboard');
+
 });

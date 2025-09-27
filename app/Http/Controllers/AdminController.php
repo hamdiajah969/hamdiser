@@ -37,6 +37,8 @@ class AdminController extends Controller
         ));
     }
 
+
+    //----user----
     public function userView()
     {
         $users = User::all();
@@ -73,14 +75,12 @@ class AdminController extends Controller
             'role'     => 'required|in:admin,operator',
         ]);
 
-        // ✅ hash password hanya bila field password diisi
         if ($request->filled('password')) {
             $validasi['password'] = bcrypt($request->password);
         } else {
             $validasi['password'] = $user->password;
         }
 
-        // ✅ update model, BUKAN $request
         $user->update($validasi);
 
         return redirect()
@@ -126,6 +126,7 @@ class AdminController extends Controller
         return redirect()->route('admin.user.index')->with('success', 'User berhasil dihapus');
     }
 
+    //----siswa----
     public function siswaIndex()
     {
         $siswas = Siswa::all();
@@ -199,6 +200,7 @@ class AdminController extends Controller
         return redirect()->route('admin.siswa.index')->with('success', 'Siswa berhasil dihapus.');
     }
 
+    //----guru-----
     public function guruIndex()
     {
         $gurus = Guru::all();
@@ -282,6 +284,7 @@ class AdminController extends Controller
         return redirect()->route('admin.guru.index')->with('success', 'Guru berhasil dihapus.');
     }
 
+    //-----ekstrakulikuler-----
     public function ekstrakulikulerIndex()
     {
         $ekstrakulikulers = Ekstrakulikuler::all();
@@ -367,6 +370,7 @@ class AdminController extends Controller
         return redirect()->route('admin.ekstrakulikuler.index')->with('success', 'Ekstrakulikuler berhasil dihapus.');
     }
 
+    //----galeri----
     public function galeriIndex()
     {
         $galeris = Galeri::all();
@@ -452,6 +456,7 @@ class AdminController extends Controller
         return redirect()->route('admin.galeri.index')->with('success', 'Galeri berhasil dihapus.');
     }
 
+    //----profil sekolah----
     public function profileSekolahIndex()
     {
         $profileSekolahs = profile_sekolah::all();
@@ -557,7 +562,7 @@ class AdminController extends Controller
         return redirect()->route('admin.profile_sekolah.index')->with('success', 'Profile Sekolah berhasil dihapus.');
     }
 
-    // Berita CRUD
+    //----berita----
     public function beritaIndex()
     {
         $beritas = Berita::with('user')->get();

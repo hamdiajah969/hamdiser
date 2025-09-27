@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthOperator
@@ -13,8 +14,21 @@ class AuthOperator
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (!Auth::check()){
+            return redirect('/auth/login');
+        }
+        if (Auth::user()->role === 'operator'){
+            return $next($request);
+        }
+        if (Auth::user()->role === 'admin'){
+            return redirect()->route('admin.dashboard');
+        }
+
+        Auth::logout();
+        {
+            return redirect('/auth/login')->with('error', 'role tidak valid');
+        }
     }
 }
