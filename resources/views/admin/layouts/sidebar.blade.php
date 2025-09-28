@@ -93,7 +93,7 @@
             <a class="nav-link" href="{{ route('admin.siswa.index') }}"><i class="bi bi-person"></i> Siswa</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.guru.index') }}"><i class="bi bi-person"></i> Guru</a>
+            <a class="nav-link" href="{{ route('admin.guru.index') }}"><i class="bi bi-person-badge"></i> Guru</a>
         </li>
         <li>
             <a class="nav-link" href="{{ route('admin.ekstrakulikuler.index') }}"><i class="bi bi-trophy"></i> Ekstrakulikuler</a>
@@ -102,10 +102,10 @@
             <a class="nav-link" href="{{ route('admin.galeri.index') }}"><i class="bi bi-images"></i> Galeri</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.profile_sekolah.index') }}"><i class="bi bi-building"></i> Profile Sekolah</a>
+          <a class="nav-link" href="{{ route('admin.berita.index') }}"><i class="bi bi-newspaper"></i> Berita</a>
         </li>
         <li>
-            <a class="nav-link" href="{{ route('admin.berita.index') }}"><i class="bi bi-newspaper"></i> Berita</a>
+            <a class="nav-link" href="{{ route('admin.profile_sekolah.index') }}"><i class="bi bi-building"></i> Profile Sekolah</a>
         </li>
 
         <li>

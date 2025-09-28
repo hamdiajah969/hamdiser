@@ -28,6 +28,15 @@
                             @enderror
                         </div>
 
+                        
+                        <div class="mb-3">
+                            <label for="tanggal" class="form-label">Tanggal</label>
+                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required>
+                            @error('tanggal')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
                             <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
@@ -36,14 +45,6 @@
                                 <option value="Video" {{ old('kategori') == 'Video' ? 'selected' : '' }}>Video</option>
                             </select>
                             @error('kategori')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required>
-                            @error('tanggal')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

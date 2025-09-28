@@ -1,98 +1,81 @@
 @extends('admin.layouts.admin')
 @section('content')
 
+
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-        <h5 class="fw-bold text-dark">Data Profile Sekolah</h5>
-        <a href="{{ route('admin.profile_sekolah.create') }}"
-           class="btn btn-primary rounded-3 fw-bold"
-           style="background:#0d47a1;">
-            <i class=""></i> Tambah
-        </a>
-    </div>
+    @forelse ($profileSekolahs as $profile)
+        <div class="card shadow-sm border-0 mb-4">
+            <div class="card-body p-4">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-2 text-center">
+                        @if($profile->logo)
+                            <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo Sekolah" class="img-fluid rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+                        @else
+                            <img src="{{ asset('assets/foto/logo1.png') }}" alt="Logo Sekolah" class="img-fluid rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+                        @endif
+                    </div>
+                    <div class="col-md-10">
+                        <h2 class="fw-bold text-dark mb-1">{{ $profile->nama_sekolah }}</h2>
+                        <p class="text-muted mb-1">NPSN: {{ $profile->npsn }}</p>
+                        <p class="text-muted">Didirikan: {{ $profile->tahun_berdiri }}</p>
+                    </div>
+                </div>
 
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
 
-    @if(session('danger'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('danger') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <h5 class="fw-bold text-primary mb-2">Deskripsi Singkat</h5>
+                        <p class="text-dark">{{ $profile->deskripsi }}</p>
+                    </div>
+                </div>
 
-    <div class="card shadow-sm border-0">
-        <div class="table-responsive">
-            <table class="table table-hover mb-0 align-middle">
-                <thead class="table-light">
-                    <tr class="text-center">
-                        <th width="5%">ID</th>
-                        <th>Nama Sekolah</th>
-                        <th>Kepala Sekolah</th>
-                        <th>NPSN</th>
-                        <th>Alamat</th>
-                        <th width="10%">Foto</th>
-                        <th width="10%">Logo</th>
-                        <th width="20%">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($profileSekolahs as $profileSekolah)
-                        <tr class="text-center align-middle">
-                            <td>{{ $profileSekolah->id_profil }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->nama_sekolah, 30) }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->kepala_sekolah, 30) }}</td>
-                            <td class="">{{ $profileSekolah->npsn }}</td>
-                            <td class="">{{ Str::limit($profileSekolah->alamat, 50) }}</td>
-                            <td class="">
-                                @if($profileSekolah->foto)
-                                    <img src="{{ asset('storage/' . $profileSekolah->foto) }}" alt="Foto" width="50" height="50" class="rounded">
-                                @else
-                                    <span class="badge bg-secondary">Tidak ada</span>
-                                @endif
-                            </td>
-                            <td class="">
-                                @if($profileSekolah->logo)
-                                    <img src="{{ asset('storage/' . $profileSekolah->logo) }}" alt="Logo" width="50" height="50" class="rounded">
-                                @else
-                                    <span class="badge bg-secondary">Tidak ada</span>
-                                @endif
-                            </td>
-                            <td>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('admin.profile_sekolah.edit', Crypt::encrypt($profileSekolah->id_profil)) }}"
-                                       class="btn btn-sm btn-warning fw-bold"
-                                       data-bs-toggle="tooltip" title="Edit">
-                                        <i class=""></i> Edit
-                                    </a>
-                                    <form action="{{ route('admin.profile_sekolah.destroy', Crypt::encrypt($profileSekolah->id_profil)) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('Yakin ingin menghapus?')"
-                                          class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                                class="btn btn-sm btn-danger fw-bold"
-                                                data-bs-toggle="tooltip" title="Hapus">
-                                            <i class="fas fa-trash"></i> Hapus
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr class="text-center">
-                            <td colspan="8">Tidak ada data profile sekolah.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-primary mb-2">Kepala Sekolah</h5>
+                        @if($profile->foto)
+                            <img src="{{ asset('storage/' . $profile->foto) }}" alt="Foto Kepala Sekolah" class="img-fluid rounded mb-2" style="width: 150px; height: auto;">
+                        @endif
+                        <p class="text-dark"><strong>Nama:</strong> {{ $profile->kepala_sekolah }}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="fw-bold text-primary mb-2">Alamat & Kontak</h5>
+                        <p class="text-dark"><strong>Alamat:</strong> {{ $profile->alamat }}</p>
+                        <p class="text-dark"><strong>Kontak:</strong> {{ $profile->kontak ?? 'Tidak tersedia' }}</p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bg-light p-3 rounded">
+                            <h5 class="fw-bold text-primary mb-3">Visi & Misi</h5>
+                            <div class="text-dark">
+                                {!! nl2br(e($profile->visi_misi)) !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="{{ route('admin.profile_sekolah.edit', Crypt::encrypt($profile->id_profil)) }}" class="btn btn-primary me-2">Edit Profile</a>
+                    <form action="{{ route('admin.profile_sekolah.destroy', Crypt::encrypt($profile->id_profil)) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <!-- <button type="submit" class="btn btn-danger">Hapus</button> -->
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    @empty
+        <div class="text-center py-5">
+            <i class="fa-solid fa-building fa-3x text-muted mb-3"></i>
+            <h5 class="text-muted">Belum Ada Data Profile Sekolah</h5>
+            <a href="{{ route('admin.profile_sekolah.create') }}" class="btn btn-primary">Tambah Profile Sekolah</a>
+        </div>
+    @endforelse
 </div>
+
 
 @endsection

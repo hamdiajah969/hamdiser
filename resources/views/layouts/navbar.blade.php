@@ -17,32 +17,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0d47a1;">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="40" class="me-2">
-            SMK Kapal
+            @if($profile && $profile->logo)
+                <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo" height="40" class="me-2">
+            @else
+                <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="40" class="me-2">
+            @endif
+            {{ $profile->nama_sekolah ?? 'SMK Kapal' }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigasi">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Siswa</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#">Programme</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Guru</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#">Curriculum</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#">Output Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Ekstrakulikuler</a></li>
                 
-                <li class="nav-item"><a class="btn nav-link" href="{{ route('login') }}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Profile Sekolah</a></li>
+
             </ul>
         </div>
     </div>

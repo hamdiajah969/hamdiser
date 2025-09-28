@@ -69,7 +69,7 @@
                                         <button type="submit"
                                                 class="btn btn-sm btn-danger fw-bold"
                                                 data-bs-toggle="tooltip" title="Hapus">
-                                            <span class="fw-bold">Hapus</span>
+                                            <i class="fas fa-trash"></i> Hapus
                                         </button>
                                     </form>
                                 </div>
