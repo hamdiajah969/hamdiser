@@ -19,17 +19,17 @@
 
     <!-- Profile Sekolah Section -->
     @if($profile)
-    <section class="py-5 bg-light">
+    <section class="py-5" style="background: #0d47a1;">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-primary">Profile Sekolah</h2>
+            <h2 class="text-center mb-4 fw-bold text-white">Profile Sekolah</h2>
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center mb-4 mb-lg-0">
                     @if($profile->logo)
                         <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo Sekolah" class="img-fluid mb-3" style="max-width: 150px;">
                     @endif
-                    <h2 class="fw-bold text-primary">{{ $profile->nama_sekolah }}</h2>
-                    <p class="text-muted">NPSN: {{ $profile->npsn }}</p>
-                    <p class="text-muted">Tahun Berdiri: {{ $profile->tahun_berdiri }}</p>
+                    <h2 class="fw-bold text-white">{{ $profile->nama_sekolah }}</h2>
+                    <p class="fw-bold text-white">NPSN: {{ $profile->npsn }}</p>
+                    <p class="fw-bold text-white">Tahun Berdiri: {{ $profile->tahun_berdiri }}</p>
                 </div>
                 <div class="col-lg-6">
                     <div class="card border-0 shadow-sm">
@@ -61,5 +61,44 @@
         </div>
     </section>
     @endif
+
+    <!-- Guru dan Siswa Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold" >Data Guru dan Siswa</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Guru</h5>
+                            <p class="card-text">Total Guru: {{ $gurus->count() }}</p>
+                            @if($gurus->count() > 0)
+                                <ul class="list-group list-group-flush">
+                                    @foreach($gurus->take(5) as $guru)
+                                        <li class="list-group-item">{{ $guru->nama_guru }} - {{ $guru->mapel }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Siswa</h5>
+                            <p class="card-text">Total Siswa: {{ $siswas->count() }}</p>
+                            @if($siswas->count() > 0)
+                                <ul class="list-group list-group-flush">
+                                    @foreach($siswas->take(5) as $siswa)
+                                        <li class="list-group-item">{{ $siswa->nama_siswa }} - {{ $siswa->jenis_kelamin }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

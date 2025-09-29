@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
-        <div class="container d-flex justify-content-start">
+        <div class="container d-flex justify-content-center">
             <div class="d-flex align-items-center me-4">
                 <span class="text-white me-1"><i class="fas fa-map-marker-alt"></i></span>
                 <span class="text-white small">Jln Pahlawan Kota Tasik No.8, Karangsari 44139</span>
@@ -41,7 +41,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
 
                 <li class="nav-item"><a class="nav-link" href="#">Ekstrakulikuler</a></li>
-                
+
                 <li class="nav-item"><a class="nav-link" href="#">Profile Sekolah</a></li>
 
             </ul>

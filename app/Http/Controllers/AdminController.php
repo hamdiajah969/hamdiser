@@ -586,11 +586,15 @@ class AdminController extends Controller
         $data = $request->only(['judul', 'isi', 'tanggal']);
         $data['id_user'] = Auth::user()->id_user;
 
+        // if ($request->hasFile('gambar')) {
+        //     $fotoPath = $request->file('gambar')->store('guru_foto', 'public');
+        //     $validated['gambar'] = $fotoPath;
+        // }
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('berita_gambar', $filename, 'public');
-            $data['gambar'] = $filename;
+            $data['gambar'] = 'berita_gambar/' . $filename;
         }
 
         Berita::create($data);
@@ -630,13 +634,13 @@ class AdminController extends Controller
 
         if ($request->hasFile('gambar')) {
             // Delete old image
-            if ($berita->gambar && file_exists(storage_path('app/public/berita_gambar/' . $berita->gambar))) {
-                unlink(storage_path('app/public/berita_gambar/' . $berita->gambar));
+            if ($berita->gambar && file_exists(storage_path('app/public/' . $berita->gambar))) {
+                unlink(storage_path('app/public/' . $berita->gambar));
             }
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('berita_gambar', $filename, 'public');
-            $data['gambar'] = $filename;
+            $data['gambar'] = 'berita_gambar/' . $filename;
         }
 
         $berita->update($data);
@@ -652,8 +656,8 @@ class AdminController extends Controller
         }
 
         $berita = Berita::findOrFail($id);
-        if ($berita->gambar && file_exists(storage_path('app/public/berita_gambar/' . $berita->gambar))) {
-            unlink(storage_path('app/public/berita_gambar/' . $berita->gambar));
+        if ($berita->gambar && file_exists(storage_path('app/public/' . $berita->gambar))) {
+            unlink(storage_path('app/public/' . $berita->gambar));
         }
         $berita->delete();
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus.');

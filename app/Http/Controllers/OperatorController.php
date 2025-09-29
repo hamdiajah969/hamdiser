@@ -216,7 +216,7 @@ class OperatorController extends Controller
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('berita_gambar', $filename, 'public');
-            $data['gambar'] = $filename;
+            $data['gambar'] = 'berita_gambar/' . $filename;
         }
 
         Berita::create($data);
@@ -256,13 +256,13 @@ class OperatorController extends Controller
 
         if ($request->hasFile('gambar')) {
             // Delete old image
-            if ($berita->gambar && file_exists(storage_path('app/public/berita_gambar/' . $berita->gambar))) {
-                unlink(storage_path('app/public/berita_gambar/' . $berita->gambar));
+            if ($berita->gambar && file_exists(storage_path('app/public/' . $berita->gambar))) {
+                unlink(storage_path('app/public/' . $berita->gambar));
             }
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('berita_gambar', $filename, 'public');
-            $data['gambar'] = $filename;
+            $data['gambar'] = 'berita_gambar/' . $filename;
         }
 
         $berita->update($data);
@@ -278,8 +278,8 @@ class OperatorController extends Controller
         }
 
         $berita = Berita::findOrFail($id);
-        if ($berita->gambar && file_exists(storage_path('app/public/berita_gambar/' . $berita->gambar))) {
-            unlink(storage_path('app/public/berita_gambar/' . $berita->gambar));
+        if ($berita->gambar && file_exists(storage_path('app/public/' . $berita->gambar))) {
+            unlink(storage_path('app/public/' . $berita->gambar));
         }
         $berita->delete();
         return redirect()->route('operator.berita.index')->with('success', 'Berita berhasil dihapus.');
