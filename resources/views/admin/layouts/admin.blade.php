@@ -27,7 +27,7 @@
         @include('admin.layouts.sidebar')
 
 
-        <main class="flex-grow-1" id="main-content">
+        <main class="flex-grow-1" id="main-content" style="margin-left: 260px; overflow-y: auto; height: 100vh;">
             @yield('content')
         </main>
     </div>

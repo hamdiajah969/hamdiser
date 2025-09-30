@@ -1,20 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
-        <div class="container d-flex justify-content-center">
-            <div class="d-flex align-items-center me-4">
-                <span class="text-white me-1"><i class="fas fa-map-marker-alt"></i></span>
-                <span class="text-white small">Jln Pahlawan Kota Tasik No.8, Karangsari 44139</span>
-            </div>
-            <div class="d-flex align-items-center me-4">
-                <span class="text-white me-1"><i class="fas fa-phone"></i></span>
-                <span class="text-white small">0287-381820</span>
-            </div>
-            <div class="d-flex align-items-center">
-                <span class="text-white me-1"><i class="fas fa-envelope"></i></span>
-                <span class="text-white small">kapal.tech@gmail.com</span>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 fixed-top">
+    <div class="container d-flex justify-content-center">
+        <div class="d-flex align-items-center me-4">
+            <span class="text-white me-1"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="text-white small">Jln Pahlawan Kota Tasik No.8, Karangsari 44139</span>
         </div>
-    </nav>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0d47a1;">
+        <div class="d-flex align-items-center me-4">
+            <span class="text-white me-1"><i class="fas fa-phone"></i></span>
+            <span class="text-white small">0287-381820</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <span class="text-white me-1"><i class="fas fa-envelope"></i></span>
+            <span class="text-white small">kapal.tech@gmail.com</span>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #0d47a1;">
     <div class="container">
         <a class="navbar-brand" href="#">
             @if($profile && $profile->logo)
@@ -31,20 +31,19 @@
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Siswa</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Guru</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Ekstrakulikuler</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="#">Profile Sekolah</a></li>
-
             </ul>
         </div>
     </div>
 </nav>
+
+<style>
+    body {
+        padding-top: 120px; /* Adjust this value based on the navbar height */
+    }
+</style>

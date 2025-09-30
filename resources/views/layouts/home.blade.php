@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('content')
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: -60px;">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="{{ asset('assets/foto/kapal.png') }}" class="d-block w-100" alt="Slide 1" style="height:90vh;object-fit:cover;">
@@ -10,12 +10,11 @@
                 <p class="text-white">Onlimitéiert Wëssen</p>
             </div>
         </div>
-        {{-- <div class="carousel-item">
-            <img src="{{ asset('assets/foto/nnu.jpg') }}" class="d-block w-100" alt="Slide 2" style="height:90vh;object-fit:cover;">
-            <div class="carousel-caption d-flex flex-column justify-content-strart h-100">
-                <h1 class="text-white mb-2">Bridge Simulator</h1>
+        <div class="carousel-item">
+            <img src="{{ asset('assets/foto/logo1.png') }}" class="d-block w-100" alt="Slide 2" style="height:90vh;object-fit:cover;">
+            <div class="carousel-caption d-flex flex-column justify-content-center h-100">
             </div>
-        </div> --}}
+        </div>
     </div>
 
     <!-- Profile Sekolah Section -->
@@ -43,11 +42,8 @@
                                     <h6 class="fw-bold text-primary">Kepala Sekolah</h6>
                                     <p>{{ $profile->kepala_sekolah }}</p>
                                     @if($profile->foto)
-                                        <img src="{{ asset('storage/' . $profile->foto) }}" alt="Foto Kepala Sekolah" class="img-fluid rounded" style="max-width: 100px;">
+                                        <img src="{{ asset('storage/' . $profile->foto) }}" alt="Foto Kepala Sekolah" class="img-fluid mb-3" style="max-width: 150px;">
                                     @endif
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="fw-bold text-primary">Kontak & Alamat</h6>
                                     <p><i class="fas fa-map-marker-alt"></i> {{ $profile->alamat }}</p>
                                     <p><i class="fas fa-phone"></i> {{ $profile->kontak ?? 'Tidak tersedia' }}</p>
                                 </div>
@@ -73,6 +69,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Guru</h5>
                             <p class="card-text">Total Guru: {{ $gurus->count() }}</p>
+                            @if($gurus->count() > 0)
+                                <ul class="list-group list-group-flush">
+                                    @foreach($gurus->take(5) as $guru)
+                                        <li class="list-group-item">{{ $guru->nama_guru }} - {{ $guru->mapel }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -81,6 +84,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Siswa</h5>
                             <p class="card-text">Total Siswa: {{ $siswas->count() }}</p>
+                            @if($siswas->count() > 0)
+                                <ul class="list-group list-group-flush">
+                                    @foreach($siswas->take(5) as $siswa)
+                                        <li class="list-group-item">{{ $siswa->nama_siswa }} - {{ $siswa->jenis_kelamin }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -112,7 +122,7 @@
                             <a href="#" class="text-decoration-none fw-bold">Read More <i class="fas fa-angle-double-right"></i></a>
                         </div>
                         <div class="card-footer bg-white border-0">
-                            <small class="text-muted"><i class="fas fa-user"></i> {{ $berita->role ? $berita->role->name : 'admin' }}</small>
+                            <small class="text-muted"><i class="fas fa-user"></i> {{ $berita->user ? $berita->user->name : 'admin' }}</small>
                         </div>
                     </div>
                 </div>
@@ -121,6 +131,5 @@
         </div>
     </section>
     @endif
-
 
 @endsection

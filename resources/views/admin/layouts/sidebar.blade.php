@@ -70,7 +70,7 @@
 <body>
 
 <!-- ============ SIDEBAR ============ -->
-<div class="sidebar">
+<div class="sidebar position-fixed" style="top: 0; left: 0; height: 100vh; overflow-y: auto;">
     <!-- header -->
     <div class="sidebar-header">
         <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="50" class="rounded-circle">
