@@ -14,15 +14,16 @@
         </div>
     </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #0d47a1;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #0d47a1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand fw-bold" href="#">
             @if($profile && $profile->logo)
                 <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo" height="40" class="me-2">
             @else
-                <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="40" class="me-2">
+                <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="50" class="me-2">
             @endif
-            {{ $profile->nama_sekolah ?? 'SMK Kapal' }}
+            {{$profile->nama_sekolah}}
+
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigasi">

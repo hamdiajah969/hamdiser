@@ -107,7 +107,7 @@
         <li>
             <a class="nav-link" href="{{ route('admin.profile_sekolah.index') }}"><i class="bi bi-building"></i> Profile Sekolah</a>
         </li>
-
+        <hr class="my-4">
         <li>
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="text-danger bi bi-box-arrow-right">   Logout</i>

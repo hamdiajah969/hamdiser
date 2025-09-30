@@ -7,6 +7,7 @@ use App\Models\Guru;
 use App\Models\Siswa;
 use App\Models\Berita;
 use App\Models\Ekstrakulikuler;
+use App\Models\Galeri;
 
 class Controller
 {
@@ -17,6 +18,7 @@ class Controller
         $siswas = Siswa::all();
         $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
         $ekstrakulikulers = Ekstrakulikuler::orderBy('nama_ekskul')->get();
-        return view('layouts.home', compact('profile', 'gurus', 'siswas', 'beritas', 'ekstrakulikulers'));
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('layouts.home', compact('profile', 'gurus', 'siswas', 'beritas', 'ekstrakulikulers', 'galeris'));
     }
 }

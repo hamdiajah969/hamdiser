@@ -5,7 +5,7 @@
 
     <!-- Statistics Cards -->
     <div class="row g-4 mb-4">
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-3 col-md-6" onclick="{{ route('admin.user.index') }}">
             <div class="card text-white border-0 shadow-lg stat-card" style="background: linear-gradient(135deg,#4e73df,#224abe);">
                 <div class="card-body position-relative overflow-hidden">
                     <i class="bi bi-person-circle fa-3x position-absolute opacity-25 top-50 end-0 translate-middle-y me-3"></i>

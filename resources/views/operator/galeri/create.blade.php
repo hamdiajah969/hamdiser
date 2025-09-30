@@ -28,6 +28,15 @@
                             @enderror
                         </div>
 
+
+                        <div class="mb-3">
+                            <label for="tanggal" class="form-label">Tanggal</label>
+                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required>
+                            @error('tanggal')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
                             <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
@@ -41,22 +50,15 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" required>
-                            @error('tanggal')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
                             <label for="file" class="form-label">File</label>
-                            <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*">
+                        <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*,video/*">
                             @error('file')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="d-flex justify-content-between">
+                            <a href="{{ route('operator.galeri.index') }}" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>

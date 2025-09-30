@@ -393,7 +393,6 @@ class AdminController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            // simpan file di storage/app/public/galeri_file
             $filePath = $request->file('file')->store('galeri_file', 'public');
             $validated['file'] = $filePath;
         }
@@ -430,7 +429,7 @@ class AdminController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
         ]);
 
         if ($request->hasFile('file')) {

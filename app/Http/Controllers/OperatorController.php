@@ -121,7 +121,7 @@ class OperatorController extends Controller
             'pembina' => 'required|string|max:40',
             'jadwal_latihan' => 'required|string|max:100',
             'deskripsi' => 'nullable|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20240',
         ]);
 
         if ($request->hasFile('gambar')) {
@@ -304,7 +304,7 @@ class OperatorController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:2024800',
         ]);
 
         if ($request->hasFile('file')) {
@@ -344,7 +344,7 @@ class OperatorController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file' => 'nullable|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240',
         ]);
 
         if ($request->hasFile('file')) {
