@@ -389,10 +389,11 @@ class AdminController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240',
+            'file' => 'nullable|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240',
         ]);
 
         if ($request->hasFile('file')) {
+            // simpan file di storage/app/public/galeri_file
             $filePath = $request->file('file')->store('galeri_file', 'public');
             $validated['file'] = $filePath;
         }

@@ -4,7 +4,7 @@
 
 <div class="container mt-4">
     @forelse ($profileSekolahs as $profile)
-        <div class="card shadow-sm border-0 mb-4">
+        <div class="card shadow-sm border-0 mb-4" style="background: #0d47a1;">
             <div class="card-body p-4">
                 <div class="row align-items-center mb-4">
                     <div class="col-md-2 text-center">
@@ -15,42 +15,38 @@
                         @endif
                     </div>
                     <div class="col-md-10">
-                        <h2 class="fw-bold text-dark mb-1">{{ $profile->nama_sekolah }}</h2>
-                        <p class="text-muted mb-1">NPSN: {{ $profile->npsn }}</p>
-                        <p class="text-muted">Didirikan: {{ $profile->tahun_berdiri }}</p>
+                        <h2 class="fw-bold text-white mb-1">{{ $profile->nama_sekolah }}</h2>
+                        <p class="text-white mb-1">NPSN: {{ $profile->npsn }}</p>
+                        <p class="text-white">Didirikan: {{ $profile->tahun_berdiri }}</p>
                     </div>
                 </div>
-
-
                 <div class="row mb-4">
                     <div class="col-md-12">
-                        <h5 class="fw-bold text-primary mb-2">Deskripsi Singkat</h5>
-                        <p class="text-dark">{{ $profile->deskripsi }}</p>
+                        <h5 class="fw-bold text-white mb-2">Deskripsi Singkat :</h5>
+                        <p class="text-white">{{ $profile->deskripsi }}</p>
                     </div>
                 </div>
-
-
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <h5 class="fw-bold text-primary mb-2">Kepala Sekolah</h5>
+                        <h5 class="fw-bold text-white mb-2">Kepala Sekolah</h5>
                         @if($profile->foto)
                             <img src="{{ asset('storage/' . $profile->foto) }}" alt="Foto Kepala Sekolah" class="img-fluid rounded mb-2" style="width: 150px; height: auto;">
                         @endif
-                        <p class="text-dark"><strong>Nama:</strong> {{ $profile->kepala_sekolah }}</p>
+                        <p class="text-white"><strong>Nama:</strong> {{ $profile->kepala_sekolah }}</p>
                     </div>
                     <div class="col-md-8">
-                        <h5 class="fw-bold text-primary mb-2">Alamat & Kontak</h5>
-                        <p class="text-dark"><strong>Alamat:</strong> {{ $profile->alamat }}</p>
-                        <p class="text-dark"><strong>Kontak:</strong> {{ $profile->kontak ?? 'Tidak tersedia' }}</p>
+                        <h5 class="fw-bold text-white mb-2">Alamat & Kontak</h5>
+                        <p class="text-white"><strong>Alamat:</strong> {{ $profile->alamat }}</p>
+                        <p class="text-white"><strong>Kontak:</strong> {{ $profile->kontak ?? 'Tidak tersedia' }}</p>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="bg-light p-3 rounded">
-                            <h5 class="fw-bold text-primary mb-3">Visi & Misi</h5>
-                            <div class="text-dark">
+                        <div class="bg-primary p-3 rounded">
+                            <h5 class="fw-bold text-white mb-3">Visi & Misi</h5>
+                            <div class="text-white">
                                 {!! nl2br(e($profile->visi_misi)) !!}
                             </div>
                         </div>

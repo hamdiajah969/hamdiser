@@ -48,24 +48,21 @@
                                 <span class="badge bg-primary">{{ $galeri->kategori }}</span>
                             </td>
                             <td>
-                                @if($galeri->file == 'Foto')
-                                    <img src="{{ asset('storage/' . $galeri->file) }}"
-                                        width="120" class="img-thumbnail">
-                                @elseif($galeri->file == 'Video')
-                                    <video width="150" controls>
-                                        <source src="{{ asset('storage/' . $galeri->file) }}" type="video/mp4">
-                                        Browser tidak mendukung video.
-                                    </video>
-                                @endif
-                                <!-- @if($galeri->file)
-                                    @if($galeri->kategori === 'Foto')
-                                        <img src="{{ asset('storage/' . $galeri->file) }}" alt="File" width="50" height="50" class="rounded">
+                                @if($galeri->file)
+                                    @if(strtolower($galeri->kategori) == 'foto')
+                                        <img src="{{ asset('storage/' . $galeri->file) }}"
+                                            width="120" class="img-thumbnail" alt="{{ $galeri->judul }}">
+                                    @elseif(strtolower($galeri->kategori) == 'video')
+                                        <video width="150" controls>
+                                            <source src="{{ asset('storage/' . $galeri->file) }}" type="video/mp4">
+                                            Browser tidak mendukung video.
+                                        </video>
                                     @else
-                                        <span class="badge bg-info">Video</span>
+                                        <span class="badge bg-secondary">Tidak diketahui</span>
                                     @endif
                                 @else
                                     <span class="badge bg-secondary">Tidak ada</span>
-                                @endif -->
+                                @endif
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">

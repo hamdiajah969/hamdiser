@@ -110,7 +110,7 @@
 
         <li>
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="bi bi-box-arrow-right"></i> Logout
+                <i class="text-danger bi bi-box-arrow-right">   Logout</i>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

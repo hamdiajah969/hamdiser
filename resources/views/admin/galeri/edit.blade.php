@@ -56,11 +56,14 @@
                                     @if($galeri->kategori === 'Foto')
                                         <img src="{{ asset('storage/' . $galeri->file) }}" alt="File Lama" width="100" height="100" class="rounded">
                                     @else
-                                        <span class="badge bg-info fs-6">Video: {{ $galeri->file }}</span>
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ asset('storage/' . $galeri->file) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
                                     @endif
                                 </div>
                             @endif
-                            <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*">
+                            <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*,video/*">
                             <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah file.</small>
                             @error('file')
                                 <div class="invalid-feedback">{{ $message }}</div>
