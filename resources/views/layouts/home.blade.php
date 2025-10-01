@@ -1,15 +1,17 @@
 @extends('layouts.index')
 @section('content')
+
+<!--  Section -->
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: -60px;">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="{{ asset('assets/foto/kapal.png') }}" class="d-block w-100" alt="Slide 1" style="height:90vh;object-fit:cover;">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100">
-                <h5 class="text-white mb-2">Selamat Datang</h5>
+                <h5 class="text-white mb-2">Welcome to</h5>
                 @if ($profile)
                 <h1 class="fw-bold text-warning">{{ $profile->nama_sekolah }}</h1>
                 @endif
-                <p class="text-white">Onlimitéiert Wëssen</p>
+                <p class="text-white">Jñāna Samudra</p>
             </div>
         </div>
         <div class="carousel-item">
@@ -76,7 +78,7 @@
                             <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top" alt="{{ $berita->judul }}" style="height: 250px; object-fit: cover;">
                             <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-3" style="width: 80px; height: 80px; border-radius: 0 0 1rem 0;">
                                 <div class="fs-3 fw-bold">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}</div>
-                                <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M, Y') }}</div>
+                                <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M Y') }}</div>
                             </div>
                         </div>
                         @endif
@@ -130,7 +132,7 @@
         <div class="container">
             <h2 class="text-center mb-4 fw-bold text-white">Ekstrakulikuler</h2>
             <div class="row justify-content-center">
-                @foreach($ekstrakulikulers->take(3) as $ekstrakulikuler)
+                @foreach($ekstrakulikulers->take(5) as $ekstrakulikuler)
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         @if($ekstrakulikuler->gambar)
@@ -148,10 +150,52 @@
     </section>
     @endif
 
+    <!-- guru Section -->
+    @if(isset($gurus) && $gurus->count() > 0)
+    <section class="py-5 bg-light" style="">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold text-black">Tenaga Pendidikan</h2>
+            <div id="guruCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($gurus->chunk(4) as $chunk)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div class="row justify-content-center">
+                            @foreach($chunk as $guru)
+                            <div class="col-md-2 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    @if($guru->foto)
+                                    <img src="{{ asset('storage/' . $guru->foto) }}" class="card-img-top" alt="{{ $guru->nama_guru }}" style="height: 250px; object-fit: cover;">
+                                    @else
+                                    <img src="{{ asset('assets/foto/guru.jpg') }}" class="card-img-top" alt="No Photo" style="height: 250px; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title fw-bold">{{ $guru->nama_guru }}</h5>
+                                        <p class="card-text">{{ $guru->mapel }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#guruCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#guruCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    @endif
+
     <!-- Guru dan Siswa Section -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold" >Guru dan Siswa</h2>
+            <h2 class="text-center mb-4 fw-bold" >Data Guru Dan Siswa</h2>
             <div class="row justify-content-center g-4">
                 <div class="col-md-4">
                     <div class="card shadow-sm text-center p-4">
@@ -170,5 +214,14 @@
             </div>
         </div>
     </section>
+
+<style>
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l4 4-4 4-1.5-1.5 2.5-2.5-2.5-2.5 1.5-1.5z'/%3e%3c/svg%3e");
+}
+</style>
 
 @endsection

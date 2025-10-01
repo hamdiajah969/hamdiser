@@ -28,11 +28,11 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <h5 class="fw-bold text-white mb-2">Kepala Sekolah</h5>
+                        <h5 class="fw-bold text-white mb-2">Foto Sekolah</h5>
                         @if($profile->foto)
                             <img src="{{ asset('storage/' . $profile->foto) }}" alt="Foto Kepala Sekolah" class="img-fluid rounded mb-2" style="width: 150px; height: auto;">
                         @endif
-                        <p class="text-white"><strong>Nama:</strong> {{ $profile->kepala_sekolah }}</p>
+                        <p class="text-white"><strong>Nama Kepala Sekolah:</strong> {{ $profile->kepala_sekolah }}</p>
                     </div>
                     <div class="col-md-8">
                         <h5 class="fw-bold text-white mb-2">Alamat & Kontak</h5>

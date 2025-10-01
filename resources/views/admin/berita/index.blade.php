@@ -34,7 +34,7 @@
                         <th>Judul</th>
                         <th>Isi</th>
                         <th>Tanggal</th>
-                        <th>Gambar</th>
+                        <th width="10%">Gambar</th>
                         <th>Penulis</th>
                         <th width="20%">Aksi</th>
                     </tr>
@@ -48,7 +48,7 @@
                             <td class="">{{ $berita->tanggal }}</td>
                             <td class="">
                                 @if($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" width="50" height="50" class="rounded">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" width="120" height="20" class="img-thumbnail">
                                 @else
                                     <span class="badge bg-secondary">Tidak ada</span>
                                 @endif

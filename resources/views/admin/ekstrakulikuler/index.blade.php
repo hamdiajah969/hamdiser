@@ -35,7 +35,7 @@
                         <th>Pembina</th>
                         <th>Jadwal Latihan</th>
                         <th>Deskripsi</th>
-                        <th width="">Gambar</th>
+                        <th width="10%">Gambar</th>
                         <th width="20%">Aksi</th>
                     </tr>
                 </thead>
@@ -49,7 +49,7 @@
                             <td class="">{{ Str::limit($ekstrakulikuler->deskripsi ?? 'Tidak ada', 50) }}</td>
                             <td class="">
                                 @if($ekstrakulikuler->gambar)
-                                    <img src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="Gambar" width="50" height="50" class="rounded-circle">
+                                    <img src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" alt="Gambar" width="100" height="100" class="img-thumbnail">
                                 @else
                                     <span class="badge bg-secondary">Tidak ada</span>
                                 @endif
