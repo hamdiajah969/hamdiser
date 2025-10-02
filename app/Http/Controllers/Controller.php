@@ -31,5 +31,13 @@ class Controller
         return view('layouts.guru', compact('profile','gurus', 'beritas', 'galeris'));
     }
 
+    public function beritaDetail($id){
+        $berita = Berita::with('user')->findOrFail($id);
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('berita.detail', compact('berita', 'profile', 'beritas', 'galeris'));
+    }
+
 
 }

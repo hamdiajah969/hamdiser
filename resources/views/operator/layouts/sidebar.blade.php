@@ -65,6 +65,22 @@
       font-size:.8rem;
       color:#b7b9cc;
     }
+    .sidebar .nav-linku{
+      color:#5a5c69;
+      padding:.65rem 1.25rem;
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:500;
+      font-size:.95rem;
+      transition:all .2s;
+      text-decoration: none;
+    }
+    .sidebar .nav-linku:hover,
+    .sidebar .nav-linku.active{
+      background:#eaecf4;
+      color:#cc0b0b;
+    }
   </style>
 </head>
 <body>
@@ -80,7 +96,7 @@
     <!-- menu -->
     <ul class="nav flex-column mt-2">
         <li>
-            <a class="nav-link active" href="{{ route('operator.dashboard') }}">
+            <a class="nav-link" href="{{ route('operator.dashboard') }}">
                 <i class="bi bi-speedometer2"></i> Dashboard
             </a>
         </li>
@@ -100,8 +116,8 @@
         </li>
         <hr class="my-4">
         <li>
-            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="text-danger bi bi-box-arrow-right"> Logout</i>
+            <a class="nav-linku" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="bi bi-box-arrow-right"> Logout</i>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

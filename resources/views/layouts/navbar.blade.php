@@ -14,9 +14,9 @@
         </div>
     </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #0d47a1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
+        <a class="navbar-brand text-dark fw-bold" href="#">
             @if($profile && $profile->logo)
                 <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo" height="40" class="me-2">
             @else
@@ -31,12 +31,11 @@
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="{{ route('layouts.home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('layouts.guru') }}">Guru</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Ekstrakulikuler</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Profile Sekolah</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{{ route('layouts.guru') }}">Guru</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Ekstrakulikuler</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Profile Sekolah</a></li>
             </ul>
         </div>
     </div>
@@ -46,4 +45,8 @@
     body {
         padding-top: 20px;
     }
+    .navbar {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px);
+}
 </style>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Controller::class, 'home'])->name('layouts.home');
 Route::get('/guru',[Controller::class, 'guru'])->name('layouts.guru');
+Route::get('/berita/{id}', [Controller::class, 'beritaDetail'])->name('berita.detail');
 
 
 // Auth routes

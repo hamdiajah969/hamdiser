@@ -1,22 +1,92 @@
-    @extends('layouts.index')
+@extends('layouts.index')
 @section('content')
 
-<!--  Section First -->
-<div id="heroCarousel" class="carousel slide" style="margin-top: -60px;">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{{ asset('assets/foto/kapal.png') }}" class="d-block w-100" alt="Slide 1" style="height:90vh;object-fit:cover;">
-            <div class="carousel-caption d-flex flex-column justify-content-center h-100">
-                <h5 class="text-white mb-2">Welcome to</h5>
-                @if ($profile)
-                <h1 class="fw-bold text-warning">{{ $profile->nama_sekolah }}</h1>
-                @endif
-                <p class="text-white">Jñāna Samudra</p>
-            </div>
+<style>
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l4 4-4 4-1.5-1.5 2.5-2.5-2.5-2.5 1.5-1.5z'/%3e%3c/svg%3e");
+}
+.banner-area {
+  position: relative;
+  background-image: url('https://sman1yogya.sch.id/assets/images/bg_home1.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.banner-area .overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sma1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.search-form input {
+  flex: 1;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-form button {
+  background: #f7b500;
+  border: none;
+  padding: 0 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+  background: #e0a000;
+}
+</style>
+
+
+<!-- tampilan1 Section -->
+    @if ($profile)
+    <section class="banner-area">
+    <div class="overlay">
+        <div class="container text-center">
+        <h1 class="sma1">{{ $profile->nama_sekolah }}</h1>
+        <form action="https://sman1yogya.sch.id/id/search" method="POST" class="search-form">
+            <input type="text" placeholder="Apa yang ingin anda cari?" name="kunci">
+            <button type="submit">Cari</button>
+        </form>
         </div>
     </div>
+    </section>
+    @endif
 
-    <!-- Profile Sekolah Section -->
+    <!-- profile Section -->
     @if($profile)
     <section class="py-5 bg-light" style="">
         <div class="container">
@@ -70,8 +140,8 @@
                         <div class="position-relative">
                             <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top berita-img" alt="{{ $berita->judul }}" style="height: 250px; object-fit: cover;">
                             <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-3" style="width: 80px; height: 80px; border-radius: 0 0 1rem 0;">
-                                <div class="fs-3 fw-bold">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}</div>
-                                <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M Y') }}</div>
+                                <div class="fs-5 fw-bold">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}</div>
+                            <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M') }}</div>
                             </div>
                         </div>
                         @endif
@@ -124,7 +194,7 @@
     @if(isset($ekstrakulikulers) && $ekstrakulikulers->count() > 0)
     <section class="py-5" style="background: #0d47a1;">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold text-white">Ekstrakulikuler</h2>
+            <h2 class="text-center mb-4 fw-bold text-white">Ekstrakurikuler</h2>
             <div class="row justify-content-center">
                 @foreach($ekstrakulikulers->take(5) as $ekstrakulikuler)
                 <div class="col-md-4 mb-4">
@@ -213,7 +283,7 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="text-start mb-4 fw-bold">
-                <h2>Leave a Reply</h2>
+                <h2>Kotak Saran</h2>
                 <p class="mb-3 small fst-italic text-muted">
                     Your email address will not be published. Required fields are marked <span class="text-danger">*</span>
                 </p>
@@ -241,20 +311,5 @@
             </div>
         </div>
     </section>
-
-<style>
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
-}
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l4 4-4 4-1.5-1.5 2.5-2.5-2.5-2.5 1.5-1.5z'/%3e%3c/svg%3e");
-}
-.berita-img {
-    transition: transform 0.3s ease;
-}
-.berita-img:hover {
-    transform: scale(1.05);
-}
-</style>
 
 @endsection
