@@ -1,8 +1,8 @@
-@extends('layouts.index')
+    @extends('layouts.index')
 @section('content')
 
-<!--  Section -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: -60px;">
+<!--  Section First -->
+<div id="heroCarousel" class="carousel slide" style="margin-top: -60px;">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="{{ asset('assets/foto/kapal.png') }}" class="d-block w-100" alt="Slide 1" style="height:90vh;object-fit:cover;">
@@ -12,11 +12,6 @@
                 <h1 class="fw-bold text-warning">{{ $profile->nama_sekolah }}</h1>
                 @endif
                 <p class="text-white">Jñāna Samudra</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{{ asset('assets/foto/logo1.png') }}" class="d-block w-100" alt="Slide 2" style="height:90vh;object-fit:cover;">
-            <div class="carousel-caption d-flex flex-column justify-content-center h-100">
             </div>
         </div>
     </div>
@@ -62,8 +57,6 @@
     </section>
     @endif
 
-
-
     <!-- Berita Terbaru Section -->
     @if(isset($beritas) && $beritas->count() > 0)
     <section class="py-5" style="background: #0d47a1;">
@@ -72,10 +65,10 @@
             <div class="row justify-content-center">
                 @foreach($beritas as $berita)
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100 shadow-sm overflow-hidden">
                         @if($berita->gambar)
                         <div class="position-relative">
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top" alt="{{ $berita->judul }}" style="height: 250px; object-fit: cover;">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top berita-img" alt="{{ $berita->judul }}" style="height: 250px; object-fit: cover;">
                             <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-3" style="width: 80px; height: 80px; border-radius: 0 0 1rem 0;">
                                 <div class="fs-3 fw-bold">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}</div>
                                 <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M Y') }}</div>
@@ -85,8 +78,11 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold">{{ $berita->judul }}</h5>
                             <p class="card-text flex-grow-1" style="max-height: 4.5rem; overflow: hidden; text-overflow: ellipsis;">{{ \Illuminate\Support\Str::limit(strip_tags($berita->isi), 100, '...') }}</p>
-                            <hr class="my-4">
-                            <small class="text-muted"><i class="fas fa-user"></i> {{ $berita->user ? $berita->user->name : 'admin' }}</small>
+                            <hr class="my-4 d-flex justify-content-between align-items-center">
+                            <small class="text-muted d-flex justify-content-between align-items-center w-100">
+                                <span><i class="fas fa-user"></i> {{ $berita->user ? $berita->user->name : 'admin' }}</span>
+                                <a href="{{ url('/berita/' . $berita->id_berita) }}" class="btn btn-sm btn-primary py-0 px-2" style="font-size: 0.75rem; line-height: 1;">Detail</a>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -96,8 +92,6 @@
     </section>
     @endif
 
-
-
     <!-- Gallery Section -->
     @if(isset($galeris) && $galeris->count() > 0)
     <section class="py-5 bg-light">
@@ -106,14 +100,14 @@
             <div class="row justify-content-center">
                 @foreach($galeris as $galeri)
                 <div class="col-md-3 mb-4">
-                    <div class="card border shadow-sm text-center">
+                    <div class="card border shadow-sm text-center overflow-hidden">
                         @if($galeri->kategori === 'video')
                             <video class="card-img-top" controls style="height: 180px; object-fit: cover;">
                                 <source src="{{ asset('storage/' . $galeri->file) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         @else
-                            <img src="{{ asset('storage/' . $galeri->file) }}" class="card-img-top" alt="{{ $galeri->judul }}" style="height: 180px; object-fit: cover;">
+                            <img src="{{ asset('storage/' . $galeri->file) }}" class="card-img-top berita-img" alt="{{ $galeri->judul }}" style="height: 180px; object-fit: cover;">
                         @endif
                         <div class="card-body p-2">
                             <p class="card-text text-truncate" style="font-size: 0.9rem;">{{ $galeri->judul }}</p>
@@ -134,9 +128,9 @@
             <div class="row justify-content-center">
                 @foreach($ekstrakulikulers->take(5) as $ekstrakulikuler)
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100 shadow-sm overflow-hidden">
                         @if($ekstrakulikuler->gambar)
-                        <img src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" class="card-img-top" alt="{{ $ekstrakulikuler->nama_ekskul }}" style="height: 250px; object-fit: cover;">
+                        <img src="{{ asset('storage/' . $ekstrakulikuler->gambar) }}" class="card-img-top berita-img" alt="{{ $ekstrakulikuler->nama_ekskul }}" style="height: 250px; object-fit: cover;">
                         @endif
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title fw-bold">{{ $ekstrakulikuler->nama_ekskul }}</h5>
@@ -162,11 +156,11 @@
                         <div class="row justify-content-center">
                             @foreach($chunk as $guru)
                             <div class="col-md-2 mb-4">
-                                <div class="card h-100 shadow-sm">
+                                <div class="card h-100 shadow-sm overflow-hidden">
                                     @if($guru->foto)
-                                    <img src="{{ asset('storage/' . $guru->foto) }}" class="card-img-top" alt="{{ $guru->nama_guru }}" style="height: 250px; object-fit: cover;">
+                                    <img src="{{ asset('storage/' . $guru->foto) }}" class="card-img-top berita-img" alt="{{ $guru->nama_guru }}" style="height: 250px; object-fit: cover;">
                                     @else
-                                    <img src="{{ asset('assets/foto/guru.jpg') }}" class="card-img-top" alt="No Photo" style="height: 250px; object-fit: cover;">
+                                    <img src="{{ asset('assets/foto/guru.jpg') }}" class="card-img-top berita-img" alt="No Photo" style="height: 250px; object-fit: cover;">
                                     @endif
                                     <div class="card-body text-center">
                                         <h5 class="card-title fw-bold">{{ $guru->nama_guru }}</h5>
@@ -193,9 +187,9 @@
     @endif
 
     <!-- Guru dan Siswa Section -->
-    <section class="py-5 bg-light">
+    <section class="py-5" style="background:#0d47a1;">
         <div class="container">
-            <h2 class="text-center mb-4 fw-bold" >Data Guru Dan Siswa</h2>
+            <h2 class="text-center mb-4 fw-bold text-white" >Data Guru Dan Siswa</h2>
             <div class="row justify-content-center g-4">
                 <div class="col-md-4">
                     <div class="card shadow-sm text-center p-4">
@@ -215,12 +209,51 @@
         </div>
     </section>
 
+    <!-- comment Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-start mb-4 fw-bold">
+                <h2>Leave a Reply</h2>
+                <p class="mb-3 small fst-italic text-muted">
+                    Your email address will not be published. Required fields are marked <span class="text-danger">*</span>
+                </p>
+                <form action="" method="" id="comment" class="comment">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment <span class="text-danger">*</span></label>
+                        <textarea name="comment" id="comment" class="form-control" rows="6" maxlength="65525" required></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="author" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" id="author" name="author" class="form-control" maxlength="245" autocomplete="name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" maxlength="100" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="save-info" name="save-info" checked>
+                        <label class="form-check-label" for="save-info">Save my name, email, and website in this browser for the next time I comment.</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
 <style>
 .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
 }
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l4 4-4 4-1.5-1.5 2.5-2.5-2.5-2.5 1.5-1.5z'/%3e%3c/svg%3e");
+}
+.berita-img {
+    transition: transform 0.3s ease;
+}
+.berita-img:hover {
+    transform: scale(1.05);
 }
 </style>
 

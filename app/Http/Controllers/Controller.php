@@ -21,4 +21,15 @@ class Controller
         $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
         return view('layouts.home', compact('profile', 'gurus', 'siswas', 'beritas', 'ekstrakulikulers', 'galeris'));
     }
+
+
+    public function guru(){
+        $profile = profile_sekolah::first();
+        $gurus = Guru::all();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('layouts.guru', compact('profile','gurus', 'beritas', 'galeris'));
+    }
+
+
 }

@@ -389,7 +389,7 @@ class AdminController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240',
+            'file' => 'nullable|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:204800',
         ]);
 
         if ($request->hasFile('file')) {
@@ -429,7 +429,7 @@ class AdminController extends Controller
             'keterangan' => 'nullable|string',
             'kategori' => 'required|in:Foto,Video',
             'tanggal' => 'required|date',
-            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:20480',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:204800',
         ]);
 
         if ($request->hasFile('file')) {

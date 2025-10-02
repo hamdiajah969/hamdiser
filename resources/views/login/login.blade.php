@@ -51,7 +51,7 @@
             box-shadow: none;
         }
         .form-control::placeholder {
-            color: #e0e0e0;
+            color:#e0e0e0;
         }
         .input-icon {
             position: relative;
@@ -82,8 +82,10 @@
             font-size: 0.9rem;
         }
         .btn-login {
-            background: white;
-            color: navy;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: white;
             border-radius: 30px;
             font-weight: 600;
             padding: 10px 0;
@@ -93,21 +95,9 @@
             transition: background 0.3s ease;
         }
         .btn-login:hover {
-            background: #fff;
             opacity: 0.9;
-            color: #5a0fb8;
         }
-        .register-text {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: white;
-        }
-        .register-text a {
-            color: white;
-            font-weight: 600;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+
     </style>
 </head>
 <body>

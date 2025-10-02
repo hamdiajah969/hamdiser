@@ -7,6 +7,8 @@ use App\Http\Controllers\OperatorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Controller::class, 'home'])->name('layouts.home');
+Route::get('/guru',[Controller::class, 'guru'])->name('layouts.guru');
+
 
 // Auth routes
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login');

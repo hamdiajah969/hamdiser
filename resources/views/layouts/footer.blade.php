@@ -17,7 +17,6 @@
             </div>
 
             @if (isset($beritas) && $beritas->count() > 0)
-
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold mb-3">LastNews</h5>
                 <ul class="list-unstyled">

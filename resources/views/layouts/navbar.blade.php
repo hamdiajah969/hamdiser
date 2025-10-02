@@ -31,9 +31,8 @@
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Siswa</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Guru</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ route('layouts.home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('layouts.guru') }}">Guru</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Ekstrakulikuler</a></li>
@@ -45,6 +44,6 @@
 
 <style>
     body {
-        padding-top: 120px; /* Adjust this value based on the navbar height */
+        padding-top: 20px;
     }
 </style>
