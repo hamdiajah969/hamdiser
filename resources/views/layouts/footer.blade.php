@@ -11,7 +11,7 @@
                              height="70"
                              class="me-3">
                     @endif
-                    <h5 class="fw-bold m-0">SMK Kapal</h5>
+                    <h5 class="fw-bold m-0">{{ $profile->nama_sekolah }}</h5>
                 </div>
 
                 @if ($profile->deskripsi)
@@ -52,7 +52,7 @@
                         @foreach ($galeris->take(2) as $galeri)
                             <li class="mb-3">
                                 <small>{{ $galeri->tanggal }}</small>
-                                <h6 class="fw-bold">{{ $galeri->judul }}</h6>
+                                <h6 class="fw-bold" style="color: #f7b500">{{ $galeri->judul }}</h6>
                                 <p class="text-white small mb-0">
                                     Pembagian laporan hasil belajar siswa akan dilaksanakan...
                                 </p>

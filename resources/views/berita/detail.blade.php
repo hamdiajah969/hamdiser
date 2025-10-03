@@ -1,21 +1,25 @@
 @extends('layouts.index')
-@section('title', $berita->judul . ' - ' . ($profile ? $profile->nama_sekolah : 'PPNS Surabaya'))
 @section('content')
-
-<!-- Breadcrumb -->
-<nav aria-label="breadcrumb" class="py-3 bg-light">
-    <div class="container">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="{{ route('layouts.home') }}">Beranda</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('layouts.home') }}#berita">Berita</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $berita->judul }}</li>
-        </ol>
-    </div>
-</nav>
-
 <!-- Berita Detail Section -->
-<section class="py-5">
+<section class="detil">
     <div class="container">
+        <!-- Breadcrumb -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb bg-light p-3 rounded">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url('/') }}" class="text-decoration-none">
+                                <i class="fas fa-home" style="col"></i> Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active text-muted" aria-current="page">
+                            Berita
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="card shadow-lg border-0">
@@ -53,7 +57,7 @@
 
                 <!-- Tombol Kembali -->
                 <div class="text-center mt-4">
-                    <a href="{{ route('layouts.home') }}" class="btn btn-outline-primary btn-lg">
+                    <a href="{{ route('layouts.home') }}" class="btn btn-back-home btn-lg">
                         <i class="fas fa-arrow-left me-2"></i>Kembali ke Beranda
                     </a>
                 </div>
@@ -86,7 +90,7 @@
                         <hr class="my-3">
                         <small class="text-muted d-flex justify-content-between align-items-center">
                             <span><i class="fas fa-user"></i> {{ $otherBerita->user ? $otherBerita->user->name : 'admin' }}</span>
-                            <a href="{{ route('berita.detail', $otherBerita->id_berita) }}" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
+                            <a href="{{ route('berita.detail', $otherBerita->id_berita) }}" class="btn btn-sm text-white" style="background: #002147;">Baca Selengkapnya</a>
                         </small>
                     </div>
                 </div>
@@ -98,6 +102,25 @@
 @endif
 
 <style>
+.detil{
+    padding-top: 8%;
+    margin-bottom: 3%;
+}
+.btn-back-home {
+    background-color: #002147;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+.btn-back-home:hover {
+    background-color: #013369;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 33, 71, 0.4);
+    color: #fff;
+}
 .berita-content p {
     margin-bottom: 1.5rem;
 }
@@ -110,7 +133,7 @@
 }
 
 .position-relative.overflow-hidden img {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 }
 
 .position-relative.overflow-hidden img:hover {
@@ -124,14 +147,21 @@
 .card-img-top:hover {
     transform: scale(1.02);
 }
-
-.breadcrumb {
-    background-color: #f8f9fa !important;
-}
-
 .breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
-}
+        color: orange;
+    }
+    .breadcrumb .fa-home {
+        color: #002147;
+    }
+    .breadcrumb .breadcrumb-item a {
+        color: #002147;
+        font-weight: 600;
+    }
+
+    .breadcrumb .breadcrumb-item a:hover {
+        color: #002147;
+        text-decoration: underline;
+    }
 </style>
 
 @endsection

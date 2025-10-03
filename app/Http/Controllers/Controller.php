@@ -47,5 +47,27 @@ class Controller
         return view('layouts.galeri', compact('beritas', 'profile', 'galeris'));
     }
 
+    public function ekskul(){
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        $ekstrakulikulers = Ekstrakulikuler::orderBy('nama_ekskul')->get();
+
+        return view('layouts.ekstrakulikuler', compact('beritas', 'profile', 'galeris', 'ekstrakulikulers'));
+    }
+
+    public function tentang(){
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('profile.tentang', compact('beritas', 'profile', 'galeris'));
+    }
+
+    public function visimisi(){
+        return view('profile.visimisi');
+    }
+
 
 }

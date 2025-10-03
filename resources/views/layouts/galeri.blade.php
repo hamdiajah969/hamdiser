@@ -1,26 +1,5 @@
 @extends('layouts.index')
 @section('content')
-<style>
-    .galeri{
-        padding-top:8%;
-    }
-    .breadcrumb-item + .breadcrumb-item::before {
-        color: orange;
-    }
-    .breadcrumb .fa-home {
-        color: #002147;
-    }
-    .breadcrumb .breadcrumb-item a {
-        color: #002147;
-        font-weight: 600;
-    }
-
-    .breadcrumb .breadcrumb-item a:hover {
-        color: #002147;
-        text-decoration: underline;
-    }
-</style>
-
 @if(isset($galeris) && $galeris->count() > 0)
 <section class="galeri">
     <div class="container">
@@ -61,4 +40,26 @@
     </div>
 </section>
 @endif
+<style>
+    .galeri{
+        padding-top:8%;
+        margin-bottom: 5%;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: orange;
+    }
+    .breadcrumb .fa-home {
+        color: #002147;
+    }
+    .breadcrumb .breadcrumb-item a {
+        color: #002147;
+        font-weight: 600;
+    }
+
+    .breadcrumb .breadcrumb-item a:hover {
+        color: #002147;
+        text-decoration: underline;
+    }
+</style>
+
 @endsection

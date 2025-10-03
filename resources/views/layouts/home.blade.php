@@ -1,9 +1,6 @@
 @extends('layouts.index')
 @section('content')
-
-
-
-<!-- Hero Section -->
+<!-- Section Utama -->
 @if ($profile)
 <section class="banner-area">
     <div class="overlay">
@@ -150,7 +147,7 @@
     <div class="container">
         <h2 class="text-center mb-4 fw-bold text-white">Ekstrakurikuler</h2>
         <div class="row justify-content-center">
-            @foreach($ekstrakulikulers->take(5) as $ekstrakulikuler)
+            @foreach($ekstrakulikulers->take(3) as $ekstrakulikuler)
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card h-100 shadow-sm overflow-hidden">
                     @if($ekstrakulikuler->gambar)

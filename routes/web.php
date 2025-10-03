@@ -10,6 +10,10 @@ Route::get('/',[Controller::class, 'home'])->name('layouts.home');
 Route::get('/guru',[Controller::class, 'guru'])->name('layouts.guru');
 Route::get('/berita/{id}', [Controller::class, 'beritaDetail'])->name('berita.detail');
 Route::get('/galeri', [Controller::class, 'galeri'])->name('layouts.galeri');
+Route::get('/ekskul',[Controller::class, 'ekskul'])->name('layouts.ektrakulikuler');
+Route::get('/tentang', [Controller::class, 'tentang'])->name('profile.tentang');
+Route::get('/visimisi', [Controller::class, 'visimisi'])->name('profile.visimisi');
+
 
 
 // Auth routes

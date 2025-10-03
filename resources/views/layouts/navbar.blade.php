@@ -21,7 +21,7 @@
 
         <!-- Menu -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav text-center">
+            <ul class="navbar-nav ">
                 <li class="nav-item">
                     <a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Home</a>
                 </li>
@@ -32,10 +32,25 @@
                     <a class="nav-link text-dark fw-bold" href="{{ route('layouts.galeri') }}">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="#">Ekstrakulikuler</a>
+                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.ektrakulikuler') }}">Ekstrakulikuler</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="#">Profile Sekolah</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Profile Sekolah
+                        </a>
+                        <ul class="dropdown-menu shadow rounded" aria-labelledby="profilDropdown">
+                          <li>
+                            <a class="dropdown-item" href="{{ route('profile.tentang') }}">
+                              <i class="me-2 text-primary"></i> Tentang Kami
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="{{ route('profile.visimisi') }}">
+                              <i class=" me-2 text-success"></i> Visi & Misi
+                            </a>
+                          </li>
+                        </ul>
+                    </li>
                 </li>
             </ul>
         </div>

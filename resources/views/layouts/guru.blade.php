@@ -3,7 +3,8 @@
 
 <style>
 .guru {
-    padding-top: 10%;
+    padding-top: 8%;
+    margin-bottom: 5%;
 }
 
 /* Thumbnail gambar guru */
@@ -27,7 +28,6 @@
 }
 .table {
     width: 100%;
-    margin-bottom: 15%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     font-size: 14px;

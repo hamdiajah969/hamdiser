@@ -143,6 +143,6 @@
     </ul>
 
     <div class="sidebar-footer">
-        SMK Perkapalan @1996
+        SMA NEGERI 1 YOGYAKARTA @1996
     </div>
 </div>
