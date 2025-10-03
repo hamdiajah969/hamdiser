@@ -1,52 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1 fixed-top">
-    <div class="container d-flex justify-content-center">
-        <div class="d-flex align-items-center me-4">
-            <span class="text-white me-1"><i class="fas fa-map-marker-alt"></i></span>
-            <span class="text-white small">Jln Pahlawan Kota Tasik No.8, Karangsari 44139</span>
-        </div>
-        <div class="d-flex align-items-center me-4">
-            <span class="text-white me-1"><i class="fas fa-phone"></i></span>
-            <span class="text-white small">0287-381820</span>
-        </div>
-        <div class="d-flex align-items-center">
-            <span class="text-white me-1"><i class="fas fa-envelope"></i></span>
-            <span class="text-white small">kapal.tech@gmail.com</span>
-        </div>
-    </div>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm"
+     style="background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),
+            0 2px 4px -1px rgba(0,0,0,0.06);">
     <div class="container">
-        <a class="navbar-brand text-dark fw-bold" href="#">
+        <!-- Logo & Nama Sekolah -->
+        <a class="navbar-brand d-flex align-items-center text-dark fw-bold" href="#">
             @if($profile && $profile->logo)
                 <img src="{{ asset('storage/' . $profile->logo) }}" alt="Logo" height="40" class="me-2">
             @else
                 <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="50" class="me-2">
             @endif
-            {{$profile->nama_sekolah}}
-
+            <span class="school-name">{{ $profile->nama_sekolah }}</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigasi">
+
+        <!-- Toggle Button untuk Mobile -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigasi">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="{{ route('layouts.guru') }}">Guru</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Galeri</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Ekstrakulikuler</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="#">Profile Sekolah</a></li>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.guru') }}">Guru</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.galeri') }}">Galeri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="#">Ekstrakulikuler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="#">Profile Sekolah</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
 <style>
-    body {
-        padding-top: 20px;
-    }
     .navbar {
-    background-color: rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(10px);
-}
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(10px);
+    }
+    .school-name {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+    @media (max-width: 991px) {
+        .navbar-nav {
+            margin-top: 10px;
+        }
+    }
 </style>

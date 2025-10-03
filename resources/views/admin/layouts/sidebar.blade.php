@@ -7,28 +7,31 @@
     .sidebar{
       width:260px;
       min-height:100vh;
-      background:#ffffff;
+      background:#002147;
       border-right:1px solid #e4e6eb;
       display:flex;
       flex-direction:column;
     }
     /* Header biru */
     .sidebar-header{
-      background:#0d47a1;
+      background:#002147;
       color:#fff;
       padding:1.5rem 1rem;
       display:flex;
       align-items:center;
       gap:.75rem;
+      /* background-color: rgba(255, 255, 255, 0.3) !important;
+      backdrop-filter: blur(10px); */
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     }
-    .sidebar-header .logo-box{
+    /* .sidebar-header .logo-box{
       background:#fff;
-      color:#0d47a1;
+      color:#002147;
       font-weight:700;
       font-size:1.2rem;
       border-radius:.25rem;
       padding:.4rem .6rem;
-    }
+    } */
     .sidebar-header span{
       font-weight:600;
       font-size:1.1rem;
@@ -89,7 +92,12 @@
 <div class="sidebar position-fixed" style="top: 0; left: 0; height: 100vh; overflow-y: auto;">
     <!-- header -->
     <div class="sidebar-header">
-        <img src="{{ asset('assets/foto/nnn.png') }}" alt="Logo" height="50" class="rounded-circle">
+        {{-- @if($profile->logo)
+            <img src="{{ asset('storage/' . $profile->logo) }}" alt="Foto" width="50" height="50" class="rounded-circle">
+        @else
+            <span class="badge bg-secondary">Tidak ada</span>
+        @endif --}}
+        <img src="{{ asset('assets/foto/ded.png') }}" alt="Foto" width="50" height="50" class="rounded-circle">
         <span>RuangAdmin</span>
     </div>
 
@@ -123,7 +131,7 @@
         <li>
             <a class="nav-link" href="{{ route('admin.profile_sekolah.index') }}"><i class="bi bi-building"></i> Profile Sekolah</a>
         </li>
-        <hr class="my-4">
+        <hr class="my-4" style="border-top: 3px solid rgb(255, 255, 255);">
         <li>
             <a class="nav-linku" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class=" bi bi-box-arrow-right">   Logout</i>

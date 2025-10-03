@@ -39,5 +39,13 @@ class Controller
         return view('berita.detail', compact('berita', 'profile', 'beritas', 'galeris'));
     }
 
+    public function galeri(){
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('layouts.galeri', compact('beritas', 'profile', 'galeris'));
+    }
+
 
 }
