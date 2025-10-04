@@ -5,8 +5,8 @@
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
         <h5 class="fw-bold text-dark">Daftar User</h5>
         <a href="{{ route('admin.user.create') }}"
-           class="btn btn-primary rounded-3 fw-bold"
-           style="background:#0d47a1;">
+           class="btn text-white rounded-3 fw-bold"
+           style="background: #002147;">
             Tambah
         </a>
     </div>

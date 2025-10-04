@@ -6,10 +6,7 @@
     <div class="overlay">
         <div class="container text-center">
             <h1 class="sma1">{{ $profile->nama_sekolah }}</h1>
-            <form action="" method="" class="search-form">
-                <input type="text" placeholder="Apa yang ingin anda cari?" name="">
-                <button type="submit">Cari</button>
-            </form>
+            <p class="welcome-text" style="font-size: 1.5rem; font-weight: 600; margin-top: 10px;">Selamat Datang</p>
         </div>
     </div>
 </section>
@@ -22,10 +19,16 @@
         <h2 class="text-center mb-4 fw-bold text-black">Tentang Kami</h2>
         <div class="row align-items-center">
             <div class="col-lg-6 text-center mb-4 mb-lg-0">
-                @if($profile->foto)
-                    <img src="{{ asset('storage/' . $profile->foto) }}"
-                         alt="Foto Sekolah"
-                         class="img-fluid rounded shadow">
+                @if($gurus->first() && $gurus->first()->foto)
+                    <img src="{{ asset('storage/' . $gurus->first()->foto) }}"
+                         alt="Foto Guru"
+                         class="img-fluid rounded shadow"
+                         style="max-width: 300px; height: auto;">
+                @else
+                    <img src="{{ asset('assets/foto/guru.jpg') }}"
+                         alt="Foto Guru"
+                         class="img-fluid rounded shadow"
+                         style="max-width: 300px; height: auto;">
                 @endif
             </div>
             <div class="col-lg-6">
@@ -241,7 +244,7 @@
     </div>
 </section>
 
-<!-- Comment -->
+<!-- Saran -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-start mb-4 fw-bold">
@@ -249,7 +252,8 @@
             <p class="mb-3 small fst-italic text-muted">
                 Your email address will not be published. Required fields are marked <span class="text-danger">*</span>
             </p>
-            <form action="" method="" id="comment" class="comment">
+            <form action="{{ route('saran.store') }}" method="POST" id="comment" class="comment">
+                @csrf
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comment <span class="text-danger">*</span></label>
                     <textarea name="comment" id="comment" class="form-control" rows="6" maxlength="65525" required></textarea>
@@ -277,6 +281,36 @@
 </section>
 
 <style>
+    .guru-carousel .carousel-item {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.guru-carousel .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.guru-carousel .card-img-container {
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.guru-carousel .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.guru-carousel .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .btn{
     background: #002147;
 }

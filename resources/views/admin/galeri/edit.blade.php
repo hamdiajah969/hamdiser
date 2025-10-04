@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Edit Galeri</h5>
+                <div class="card-header text-white" style="background: #002147;">
+                    <h5 class="mb-0 fw-bold">Edit Galeri</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.galeri.update', Crypt::encrypt($galeri->id_galeri)) }}" method="POST" enctype="multipart/form-data">
@@ -76,31 +76,9 @@
                                 </small>
                             </div>
                         </div>
-
-                        {{-- <div class="mb-3">
-                            <label for="file" class="form-label">File</label>
-                            @if($galeri->file)
-                                <div class="mb-2">
-                                    @if($galeri->kategori === 'Foto')
-                                        <img src="{{ asset('storage/' . $galeri->file) }}" alt="File Lama" width="100" height="100" class="rounded">
-                                    @else
-                                        <video width="320" height="240" controls>
-                                            <source src="{{ asset('storage/' . $galeri->file) }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    @endif
-                                </div>
-                            @endif
-                            <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" accept="image/*,video/*">
-                            <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah file.</small>
-                            @error('file')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div> --}}
-
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('admin.galeri.index') }}" class="btn btn-secondary">Kembali</a>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('admin.galeri.index') }}" class="btn text-white fw-bold" style="background: #e0a000;">Kembali</a>
+                            <button type="submit" class="btn text-white fw-bold" style="background:#002147;">Simpan</button>
                         </div>
                     </form>
                 </div>

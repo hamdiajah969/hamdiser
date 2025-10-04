@@ -10,7 +10,7 @@
         body {
             margin: 0;
             height: 100vh;
-            background: linear-gradient(135deg, #0d47a1 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #0d47a1 0%, #002147 100%);
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +18,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
+
         .login-container {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -27,9 +29,11 @@
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.18);
             padding: 40px 30px;
-            width: 350px;
+            width: 100%;
+            max-width: 380px;
             text-align: center;
         }
+
         .login-container img {
             display: block;
             margin: 0 auto 20px auto;
@@ -37,25 +41,16 @@
             height: 120px;
             border-radius: 50%;
         }
+
         .login-container h2 {
             margin-bottom: 30px;
             font-weight: 700;
         }
-        .form-control {
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: white;
-            padding-left: 45px;
-            height: 45px;
-            box-shadow: none;
-        }
-        .form-control::placeholder {
-            color:#e0e0e0;
-        }
+
         .input-icon {
             position: relative;
         }
+
         .input-icon i {
             position: absolute;
             left: 15px;
@@ -64,23 +59,30 @@
             color: white;
             font-size: 18px;
         }
-        .form-check-label {
+
+        .form-control {
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            padding-left: 45px;
+            height: 45px;
             color: white;
-            user-select: none;
+            box-shadow: none;
+            transition: none;
         }
-        .form-check-input {
-            background-color: white;
-            border-radius: 3px;
-            margin-top: 0.3rem;
-            margin-right: 0.5rem;
-            cursor: pointer;
+
+        .form-control::placeholder {
+            color: #e0e0e0;
         }
-        .forgot-link {
+
+        .form-control:focus,
+        .form-control:hover {
+            background: rgba(255, 255, 255, 0.15);
             color: white;
-            text-decoration: underline;
-            cursor: pointer;
-            font-size: 0.9rem;
+            box-shadow: none;
+            border: none;
         }
+
         .btn-login {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
@@ -92,17 +94,52 @@
             margin-top: 20px;
             width: 100%;
             border: none;
-            transition: background 0.3s ease;
-        }
-        .btn-login:hover {
-            opacity: 0.9;
+            transition: 0.3s;
         }
 
+        .btn-login:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .forgot-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+
+            .login-container img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .form-control {
+                height: 40px;
+                padding-left: 40px;
+            }
+
+            .input-icon i {
+                font-size: 16px;
+                left: 12px;
+            }
+
+            .btn-login {
+                font-size: 0.95rem;
+                padding: 8px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <img src="{{ asset('assets/foto/nnn.png') }}" alt="Login Image" />
+        <img src="{{ asset('assets/foto/ded.png') }}" alt="Login Image" />
         <h2>Login</h2>
         <form action="{{ route('auth') }}" method="POST">
             @csrf
@@ -129,7 +166,7 @@
                 />
             </div>
             <button type="submit" class="btn btn-login">Login</button>
-            <a href="" class="forgot-link">Kembali Ke Beranda</a>
+            <a href="/" class="forgot-link">Kembali Ke Beranda</a>
         </form>
     </div>
 

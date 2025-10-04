@@ -13,6 +13,7 @@ Route::get('/galeri', [Controller::class, 'galeri'])->name('layouts.galeri');
 Route::get('/ekskul',[Controller::class, 'ekskul'])->name('layouts.ektrakulikuler');
 Route::get('/tentang', [Controller::class, 'tentang'])->name('profile.tentang');
 Route::get('/visimisi', [Controller::class, 'visimisi'])->name('profile.visimisi');
+Route::post('/saran', [Controller::class, 'storeSaran'])->name('saran.store');
 
 
 
@@ -79,6 +80,13 @@ Route::middleware(['admin'])->group(function (){
     Route::get('/admin/berita/edit/{id}',[AdminController::class,'beritaEdit'])->name('admin.berita.edit');
     Route::put('/admin/berita/edit/{id}',[AdminController::class, 'beritaUpdate'])->name('admin.berita.update');
     Route::delete('/admin/berita/{id}', [AdminController::class, 'beritaDestroy'])->name('admin.berita.destroy');
+
+    //saran
+    Route::get('/admin/saran', [AdminController::class, 'saranIndex'])->name('admin.saran.index');
+    Route::get('/admin/saran/create', [AdminController::class, 'saranCreate'])->name('admin.saran.create');
+    Route::post('/admin/saran', [AdminController::class, 'saranStore'])->name('admin.saran.store');
+    Route::get('/admin/saran/{id}', [AdminController::class, 'saranShow'])->name('admin.saran.show');
+    Route::delete('/admin/saran/{id}', [AdminController::class, 'saranDestroy'])->name('admin.saran.destroy');
 });
 
 Route::middleware(['operator'])->group(function (){

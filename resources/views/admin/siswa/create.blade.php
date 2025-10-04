@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Tambah Siswa</h5>
+                <div class="card-header text-white" style="background: #002147;">
+                    <h5 class="mb-0 fw-bold">Tambah Siswa</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.siswa.store') }}" method="POST">
@@ -44,8 +44,8 @@
                             @enderror
                         </div>
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('admin.siswa.index') }}" class="btn btn-secondary">Kembali</a>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('admin.siswa.index') }}" class="btn text-white fw-bold" style="background: #e0a000;">Kembali</a>
+                            <button type="submit" class="btn text-white fw-bold" style="background: #002147">Simpan</button>
                         </div>
                     </form>
                 </div>

@@ -8,6 +8,8 @@ use App\Models\Siswa;
 use App\Models\Berita;
 use App\Models\Ekstrakulikuler;
 use App\Models\Galeri;
+use App\Models\Saran;
+use Illuminate\Http\Request;
 
 class Controller
 {
@@ -67,6 +69,23 @@ class Controller
 
     public function visimisi(){
         return view('profile.visimisi');
+    }
+
+    public function storeSaran(Request $request)
+    {
+        $validated = $request->validate([
+            'comment' => 'required|string',
+            'author' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+        ]);
+
+        Saran::create([
+            'comment' => $validated['comment'],
+            'name' => $validated['author'],
+            'email' => $validated['email'],
+        ]);
+
+        return redirect()->back()->with('success', 'Terima kasih atas saran Anda!');
     }
 
 

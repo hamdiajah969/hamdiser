@@ -9,6 +9,7 @@ use App\Models\Ekstrakulikuler;
 use App\Models\Galeri;
 use App\Models\profile_sekolah;
 use App\Models\Berita;
+use App\Models\Saran;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -661,6 +662,46 @@ class AdminController extends Controller
         }
         $berita->delete();
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus.');
+    }
+
+    //----saran----
+    public function saranIndex()
+    {
+        $sarans = Saran::all();
+        return view('admin.saran.index', compact('sarans'));
+    }
+
+    public function saranStore(Request $request)
+    {
+        $validated = $request->validate([
+            'comment' => 'required|string',
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:100',
+        ]);
+
+        Saran::create($validated);
+
+        return redirect()->route('admin.saran.index');
+    }
+
+    public function saranShow(string $id)
+    {
+        $saran = Saran::findOrFail($id);
+        return view('admin.saran.show', compact('saran'));
+    }
+
+    public function saranDestroy(string $id)
+    {
+        try {
+            $id = Crypt::decrypt($id);
+        } catch (DecryptException $e) {
+            return redirect()->back()->with('danger', 'ID tidak valid.');
+        }
+
+        $saran = Saran::findOrFail($id);
+        $saran->delete();
+
+        return redirect()->route('admin.saran.index')->with('success', 'Saran berhasil dihapus.');
     }
 
 }

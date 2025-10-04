@@ -1,14 +1,10 @@
-@extends('operator.layouts.operator')
+@extends('admin.layouts.admin')
 @section('content')
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
-        <h5 class="fw-bold text-dark">Data Berita</h5>
-        <a href="{{ route('operator.berita.create') }}"
-           class="btn text-white rounded-3 fw-bold"
-           style="background: #002147">
-            <i class=""></i> Tambah
-        </a>
+        <h5 class="fw-bold text-dark">Data Saran</h5>
+
     </div>
 
     @if(session('success'))
@@ -31,37 +27,27 @@
                 <thead class="table-light">
                     <tr class="text-center">
                         <th width="5%">ID</th>
-                        <th>Judul</th>
-                        <th>Isi</th>
-                        <th>Tanggal</th>
-                        <th>Gambar</th>
-                        <th>Penulis</th>
+                        <th>Comment</th>
+                        <th>Nama</th>
+                        <th>Email</th>
                         <th width="20%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($beritas as $berita)
+                    @forelse($sarans as $saran)
                         <tr class="text-center align-middle">
-                            <td>{{ $berita->id_berita }}</td>
-                            <td class="">{{ Str::limit($berita->judul, 30) }}</td>
-                            <td class="">{{ Str::limit($berita->isi, 50) }}</td>
-                            <td class="">{{ $berita->tanggal }}</td>
-                            <td class="">
-                                @if($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="Gambar" width="50" height="50" class="rounded">
-                                @else
-                                    <span class="badge bg-secondary">Tidak ada</span>
-                                @endif
-                            </td>
-                            <td class="">{{ $berita->user->name }}</td>
+                            <td>{{ $saran->id_saran }}</td>
+                            <td class="">{{ Str::limit($saran->comment, 50) }}</td>
+                            <td class="">{{ $saran->name }}</td>
+                            <td class="">{{ $saran->email }}</td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('operator.berita.edit', Crypt::encrypt($berita->id_berita)) }}"
-                                       class="btn btn-sm btn-warning fw-bold"
-                                       data-bs-toggle="tooltip" title="Edit">
-                                        <i class=""></i> Edit
+                                    <a href="{{ route('admin.saran.show', $saran->id_saran) }}"
+                                       class="btn btn-sm btn-info fw-bold"
+                                       data-bs-toggle="tooltip" title="Detail">
+                                        <i class="fas fa-eye"></i> Detail
                                     </a>
-                                    <form action="{{ route('operator.berita.destroy', Crypt::encrypt($berita->id_berita)) }}"
+                                    <form action="{{ route('admin.saran.destroy', Crypt::encrypt($saran->id_saran)) }}"
                                           method="POST"
                                           onsubmit="return confirm('Yakin ingin menghapus?')"
                                           class="d-inline">
@@ -78,7 +64,7 @@
                         </tr>
                     @empty
                         <tr class="text-center">
-                            <td colspan="7">Tidak ada data berita.</td>
+                            <td colspan="5">Tidak ada data saran.</td>
                         </tr>
                     @endforelse
                 </tbody>
