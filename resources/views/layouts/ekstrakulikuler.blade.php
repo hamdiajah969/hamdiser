@@ -49,7 +49,7 @@
 
 <style>
 .ekskul{
-    padding-top:1rem;
+    padding-top: 8%;
     margin-bottom: 5%;
 }
 .gallery-item {

@@ -68,7 +68,11 @@ class Controller
     }
 
     public function visimisi(){
-        return view('profile.visimisi');
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('profile.visimisi', compact('beritas', 'profile', 'galeris'));
     }
 
     public function storeSaran(Request $request)

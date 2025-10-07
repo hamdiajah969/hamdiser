@@ -52,6 +52,9 @@
                         </ul>
                     </li>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-bold" href="{{ route('login.login') }}">Login</a>
+                </li>
             </ul>
         </div>
     </div>

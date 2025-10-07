@@ -19,6 +19,7 @@ Route::post('/saran', [Controller::class, 'storeSaran'])->name('saran.store');
 
 // Auth routes
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login.login');
 Route::post('/auth',[AuthController::class, 'auth'])->name('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

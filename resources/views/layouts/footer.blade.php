@@ -36,7 +36,7 @@
                                 <small>{{ $berita->tanggal }}</small>
                                 <h6 class="fw-bold" style="color: #f7b500">{{ $berita->judul }}</h6>
                                 <p class="text-white small mb-0">
-                                    Berikut ini pembagian ruang seleksi mata pelajaran pilihan...
+                                    {{$berita->isi}}
                                 </p>
                             </li>
                         @endforeach
@@ -54,7 +54,7 @@
                                 <small>{{ $galeri->tanggal }}</small>
                                 <h6 class="fw-bold" style="color: #f7b500">{{ $galeri->judul }}</h6>
                                 <p class="text-white small mb-0">
-                                    Pembagian laporan hasil belajar siswa akan dilaksanakan...
+                                    {{$galeri->judul}}
                                 </p>
                             </li>
                         @endforeach

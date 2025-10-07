@@ -59,12 +59,10 @@
     transform: translateY(5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-</style>
-<style>
-    .table-row-hover:hover {
-        background-color: rgba(0, 242, 254, 0.05);
-        transition: background-color 0.3s ease;
-    }
+.table-row-hover:hover {
+    background-color: rgba(0, 242, 254, 0.05);
+    transition: background-color 0.3s ease;
+}
 </style>
 
 </div>

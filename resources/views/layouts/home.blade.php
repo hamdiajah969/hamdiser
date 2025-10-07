@@ -12,11 +12,11 @@
 </section>
 @endif
 
-<!-- Profile Section -->
+<!-- Sambutan Kepsek Section -->
 @if($profile)
 <section class="py-5 bg-light">
     <div class="container">
-        <h2 class="text-center mb-4 fw-bold text-black">Tentang Kami</h2>
+        <h2 class="text-center mb-4 fw-bold text-black">Sambutan Kepala Sekolah</h2>
         <div class="row align-items-center">
             <div class="col-lg-6 text-center mb-4 mb-lg-0">
                 @if($gurus->first() && $gurus->first()->foto)
@@ -32,10 +32,10 @@
                 @endif
             </div>
             <div class="col-lg-6">
-                <h6 class="text-uppercase text-muted">Profile</h6>
+                <h6 class="text-uppercase text-muted"></h6>
                 <h2 class="fw-bold">{{ $profile->nama_sekolah }}</h2>
                 <p class="mb-4 text-black">{{ $profile->deskripsi }}</p>
-                <div class="row g-3">
+                <!-- <div class="row g-3">
                     <div class="col-md-4">
                         <div class="card shadow-sm p-3 h-100">
                             <h6 class="fw-bold">
@@ -60,7 +60,7 @@
                             <p class="mb-0">{{ $profile->tahun_berdiri }}</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
