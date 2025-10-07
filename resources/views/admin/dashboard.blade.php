@@ -2,7 +2,6 @@
 @section('content')
 <div class="container-fluid px-4">
     <h1 class="h2 mb-4"></h1>
-
     <!-- Statistics Cards -->
     <div class="row g-4 mb-4">
         <div class="col-xl-3 col-md-6" onclick="{{ route('admin.user.index') }}">

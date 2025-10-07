@@ -27,10 +27,7 @@
                     @if($berita->gambar)
                     <div class="position-relative overflow-hidden">
                         <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img-top" alt="{{ $berita->judul }}" style="height: 400px; object-fit: cover;">
-                        <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-3" style="border-radius: 0 0 1rem 0;">
-                            <div class="fs-4 fw-bold">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}</div>
-                            <div class="small">{{ \Carbon\Carbon::parse($berita->tanggal)->format('M Y') }}</div>
-                        </div>
+                        
                     </div>
                     @endif
 
@@ -78,15 +75,12 @@
                     @if($otherBerita->gambar)
                     <div class="position-relative">
                         <img src="{{ asset('storage/' . $otherBerita->gambar) }}" class="card-img-top" alt="{{ $otherBerita->judul }}" style="height: 200px; object-fit: cover;">
-                        <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-2" style="width: 60px; height: 60px; border-radius: 0 0 1rem 0;">
-                            <div class="fs-5 fw-bold">{{ \Carbon\Carbon::parse($otherBerita->tanggal)->format('d') }}</div>
-                            <div class="small">{{ \Carbon\Carbon::parse($otherBerita->tanggal)->format('M') }}</div>
-                        </div>
                     </div>
                     @endif
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">{{ $otherBerita->judul }}</h5>
                         <p class="card-text flex-grow-1" style="max-height: 4.5rem; overflow: hidden; text-overflow: ellipsis;">{{ \Illuminate\Support\Str::limit(strip_tags($otherBerita->isi), 100, '...') }}</p>
+                        <i class="fas fa-calendar-alt "> {{ $berita->tanggal }}</i>
                         <hr class="my-3">
                         <small class="text-muted d-flex justify-content-between align-items-center">
                             <span><i class="fas fa-user"></i> {{ $otherBerita->user ? $otherBerita->user->name : 'admin' }}</span>

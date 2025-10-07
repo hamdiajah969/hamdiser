@@ -1,5 +1,4 @@
 @extends('admin.layouts.admin')
-
 @section('content')
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -15,14 +14,14 @@
                             <label for="nama_guru" class="form-label">Nama Guru</label>
                             <input type="text" class="form-control @error('nama_guru') is-invalid @enderror" id="nama_guru" name="nama_guru" value="{{ old('nama_guru') }}" required>
                             @error('nama_guru')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">Nama guru tidak ada</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="nip" class="form-label">NIP</label>
                             <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{ old('nip') }}" required>
                             @error('nip')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">Tidak Valid Atau Sudah</div>
                             @enderror
                         </div>
                         <div class="mb-3">

@@ -26,7 +26,6 @@
       margin: 0;
     }
 
-    /* SIDEBAR */
     .sidebar {
       width: 260px;
       min-height: 100vh;
@@ -41,7 +40,6 @@
       transition: all 0.3s ease;
       z-index: 1000;
     }
-
     .sidebar-header {
       background: #002147;
       color: #fff;
@@ -52,12 +50,10 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
                   0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-
     .sidebar-header span {
       font-weight: 600;
       font-size: 1.1rem;
     }
-
     .sidebar .nav-link,
     .sidebar .nav-linku {
       color: #5a5c69;
@@ -70,19 +66,16 @@
       text-decoration: none;
       transition: all 0.2s;
     }
-
     .sidebar .nav-link:hover,
     .sidebar .nav-link.active {
       background: #eaecf4;
       color: #002147;
     }
-
     .sidebar .nav-linku:hover,
     .sidebar .nav-linku.active {
       background: #eaecf4;
       color: #cc0b0b;
     }
-
     .sidebar-heading {
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -90,7 +83,6 @@
       padding: 1rem 1.25rem 0.25rem;
       font-weight: 700;
     }
-
     .sidebar-footer {
       margin-top: auto;
       padding: 1rem 1.25rem;
@@ -99,8 +91,6 @@
       text-align: center;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .sidebar {
         left: -260px;
@@ -175,7 +165,7 @@
     </ul>
 
     <div class="sidebar-footer">
-      SMA NEGERI 1 YOGYAKARTA © 1996
+      SMA CILAMPUNGHILIR © 1996
     </div>
   </div>
 

@@ -16,7 +16,7 @@
 @if($profile)
 <section class="py-5 bg-light">
     <div class="container">
-        <h2 class="text-center mb-4 fw-bold text-black">Sambutan Kepala Sekolah</h2>
+        <h2 class="text-center mb-4 fw-bold text-black">Sambutan Kepala Seekolah</h2>
         <div class="row align-items-center">
             <div class="col-lg-6 text-center mb-4 mb-lg-0">
                 @if($gurus->first() && $gurus->first()->foto)
@@ -35,32 +35,6 @@
                 <h6 class="text-uppercase text-muted"></h6>
                 <h2 class="fw-bold">{{ $profile->nama_sekolah }}</h2>
                 <p class="mb-4 text-black">{{ $profile->deskripsi }}</p>
-                <!-- <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="card shadow-sm p-3 h-100">
-                            <h6 class="fw-bold">
-                                <i class="fas fa-map-marker-alt"></i> Alamat
-                            </h6>
-                            <p class="mb-0">{{ $profile->alamat }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm p-3 h-100">
-                            <h6 class="fw-bold">
-                                <i class="fas fa-phone"></i> Kontak
-                            </h6>
-                            <p class="mb-0">{{ $profile->kontak ?? 'Tidak tersedia' }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm p-3 h-100">
-                            <h6 class="fw-bold">
-                                <i class="fas fa-calendar-alt"></i> Tahun Berdiri
-                            </h6>
-                            <p class="mb-0">{{ $profile->tahun_berdiri }}</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -82,15 +56,6 @@
                              class="card-img-top"
                              alt="{{ $berita->judul }}"
                              style="height: 250px; object-fit: cover;">
-                        <div class="position-absolute top-0 start-0 bg-dark bg-opacity-75 text-warning p-3"
-                             style="width: 80px; height: 80px; border-radius: 0 0 1rem 0;">
-                            <div class="fs-5 fw-bold">
-                                {{ \Carbon\Carbon::parse($berita->tanggal)->format('d') }}
-                            </div>
-                            <div class="small">
-                                {{ \Carbon\Carbon::parse($berita->tanggal)->format('M') }}
-                            </div>
-                        </div>
                     </div>
                     @endif
                     <div class="card-body d-flex flex-column">
@@ -98,11 +63,11 @@
                         <p class="card-text flex-grow-1" style="max-height:4.5rem;overflow:hidden;">
                             {{ \Illuminate\Support\Str::limit(strip_tags($berita->isi), 100, '...') }}
                         </p>
+                        <i class="fas fa-calendar-alt "> {{ $berita->tanggal }}</i>
                         <hr class="my-4">
                         <small class="text-muted d-flex justify-content-between align-items-center w-100">
                             <span><i class="fas fa-user"></i> {{ $berita->user ? $berita->user->name : 'admin' }}</span>
                             <a href="{{ url('/berita/' . $berita->id_berita) }}" class="btnd">Detail</a>
-
                         </small>
                     </div>
                 </div>
@@ -281,7 +246,7 @@
 </section>
 
 <style>
-    .guru-carousel .carousel-item {
+.guru-carousel .carousel-item {
     min-height: 400px;
     display: flex;
     align-items: center;

@@ -1,6 +1,5 @@
 @extends('admin.layouts.admin')
 @section('content')
-
 <div class="container mt-4">
     @forelse ($profileSekolahs as $profile)
         <!-- Card Utama -->

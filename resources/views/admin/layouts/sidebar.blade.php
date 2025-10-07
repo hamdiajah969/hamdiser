@@ -3,7 +3,6 @@
       font-family: "Poppins", sans-serif;
       background:#f8f9fa;
     }
-    /* --- SIDEBAR --- */
     .sidebar{
       width:260px;
       min-height:100vh;
@@ -12,7 +11,6 @@
       display:flex;
       flex-direction:column;
     }
-    /* Header biru */
     .sidebar-header{
       background:#002147;
       color:#fff;
@@ -26,8 +24,6 @@
       font-weight:600;
       font-size:1.1rem;
     }
-
-    /* nav menu */
     .sidebar .nav-link{
       color:#5a5c69;
       padding:.65rem 1.25rem;
@@ -43,7 +39,6 @@
       background:#eaecf4;
       color:#002147;
     }
-
     .sidebar-heading{
       text-transform:uppercase;
       font-size:.75rem;
@@ -51,7 +46,6 @@
       padding:1rem 1.25rem .25rem;
       font-weight:700;
     }
-
     .sidebar-footer{
       margin-top:auto;
       padding:1rem 1.25rem;
@@ -131,6 +125,7 @@
     </ul>
 
     <div class="sidebar-footer">
-        SMA NEGERI 1 YOGYAKARTA @1996
+        SMA CILAMPUNGHILIR @1996
     </div>
 </div>
+

@@ -1,6 +1,5 @@
 @extends('admin.layouts.admin')
 @section('content')
-
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
         <h5 class="fw-bold text-dark">Daftar Guru</h5>
@@ -48,7 +47,7 @@
                            <td>
                                     @if($guru->foto)
                                         <img src="{{ asset('storage/' . $guru->foto) }}" alt="Foto" width="50" height="50" class="rounded-circle">
-                                    @else
+                                    @else 
                                         <span class="badge bg-secondary">Tidak ada</span>
                                     @endif
                             </td>

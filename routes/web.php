@@ -14,6 +14,8 @@ Route::get('/ekskul',[Controller::class, 'ekskul'])->name('layouts.ektrakulikule
 Route::get('/tentang', [Controller::class, 'tentang'])->name('profile.tentang');
 Route::get('/visimisi', [Controller::class, 'visimisi'])->name('profile.visimisi');
 Route::post('/saran', [Controller::class, 'storeSaran'])->name('saran.store');
+Route::get('/berita', [Controller::class, 'berita'])->name('layouts.berita');
+Route::get('/siswa', [Controller::class, 'siswa'])->name('layouts.siswa');
 
 
 

@@ -42,7 +42,6 @@ class Controller
     }
 
     public function galeri(){
-        $berita = Berita::with('user');
         $profile = profile_sekolah::first();
         $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
         $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
@@ -90,6 +89,24 @@ class Controller
         ]);
 
         return redirect()->back()->with('success', 'Terima kasih atas saran Anda!');
+    }
+
+    public function berita(){
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(10)->get();
+        $galeris = Galeri::whereIn('kategori', ['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        return view('layouts.berita', compact('beritas', 'profile', 'galeris'));
+    }
+
+    public function siswa(){
+        $berita = Berita::with('user');
+        $profile = profile_sekolah::first();
+        $beritas = Berita::with('user')->orderBy('tanggal', 'desc')->take(3)->get();
+        $galeris = Galeri::whereIn('kategori',['foto', 'video'])->orderBy('tanggal', 'desc')->get();
+        $siswas = Siswa::all();
+        $gurus = Guru::all();
+        return view('layouts.siswa', compact('siswas', 'beritas', 'profile', 'galeris', 'gurus'));
     }
 
 

@@ -1,6 +1,5 @@
 @extends('admin.layouts.admin')
 @section('content')
-
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3 px-2">
         <h5 class="fw-bold text-dark">Data Galeri</h5>

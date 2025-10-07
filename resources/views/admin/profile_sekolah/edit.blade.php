@@ -1,5 +1,4 @@
 @extends('admin.layouts.admin')
-
 @section('content')
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -75,7 +74,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="foto" class="form-label">Foto Kepala Sekolah</label>
+                                    <label for="foto" class="form-label">Foto Sekolah</label>
                                     @if($profileSekolah->foto)
                                         <div class="mb-2">
                                             <img src="{{ asset('storage/' . $profileSekolah->foto) }}" alt="Foto Lama" width="100" height="100" class="rounded">

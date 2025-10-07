@@ -5,7 +5,6 @@
         margin: 0;
     }
 
-    /* --- SIDEBAR --- */
     .sidebar {
         width: 260px;
         min-height: 100vh;
@@ -21,7 +20,6 @@
         z-index: 1000;
     }
 
-    /* Header */
     .sidebar-header {
         background: #002147;
         color: #fff;
@@ -44,7 +42,6 @@
         font-size: 1.1rem;
     }
 
-    /* Nav menu */
     .sidebar .nav-link,
     .sidebar .nav-linku {
         color: #5a5c69;
@@ -87,7 +84,6 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Responsif */
     @media (max-width: 992px) {
         .sidebar {
             width: 220px;
@@ -108,7 +104,6 @@
             left: 0;
         }
 
-        /* Tombol toggle */
         .sidebar-toggle {
             position: fixed;
             top: 15px;

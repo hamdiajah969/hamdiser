@@ -202,7 +202,7 @@
         </ul>
 
         <div class="sidebar-footer">
-            SMA NEGERI 1 YOGYAKARTA © 1996
+            SMA CILAMPUNGHILIR © 1996
         </div>
     </div>
 

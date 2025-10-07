@@ -68,7 +68,6 @@ class AdminController extends Controller
 
         $user = User::findOrFail($id);
 
-        // ✅ validasi dengan pengecualian id yang sedang diedit
         $validasi = $request->validate([
             'name'     => 'required|string|max:225',
             'username' => 'required|string|max:225|unique:users,username,' . $user->getKey() . ',id_user',
@@ -587,10 +586,6 @@ class AdminController extends Controller
         $data = $request->only(['judul', 'isi', 'tanggal']);
         $data['id_user'] = Auth::user()->id_user;
 
-        // if ($request->hasFile('gambar')) {
-        //     $fotoPath = $request->file('gambar')->store('guru_foto', 'public');
-        //     $validated['gambar'] = $fotoPath;
-        // }
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
             $filename = time() . '_' . $file->getClientOriginalName();

@@ -6,8 +6,6 @@
     padding-top: 8%;
     margin-bottom: 5%;
 }
-
-/* Thumbnail gambar guru */
 .thumb {
     max-width: 900px;
     margin: 0 auto 30px auto;
@@ -20,8 +18,6 @@
     height: auto;
     display: inline-block;
 }
-
-/* Table guru */
 .table-responsive {
     max-width: 900px;
     margin: 0 auto;

@@ -1,5 +1,4 @@
 @extends('admin.layouts.admin')
-
 @section('content')
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -15,7 +14,7 @@
                             <label for="nisn" class="form-label">NISN</label>
                             <input type="text" class="form-control @error('nisn') is-invalid @enderror" id="nisn" name="nisn" value="{{ old('nisn') }}" required>
                             @error('nisn')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">NISN Tidak Valid Atau Sudah Ada</div>
                             @enderror
                         </div>
                         <div class="mb-3">

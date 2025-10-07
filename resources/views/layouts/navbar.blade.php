@@ -23,16 +23,21 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Home</a>
+                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.guru') }}">Guru</a>
+                    <a class="nav-link fw-bold {{ request()->routeIs('layouts.siswa') ? 'text-primary' : 'text-dark' }}" href="{{ route('layouts.siswa') }}">Siswa</a>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold {{ request()->routeIs('layouts.guru') ? 'text-primary' : 'text-dark' }}" href="{{ route('layouts.guru') }}">Guru</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.galeri') }}">Galeri</a>
+                    <a class="nav-link fw-bold {{ request()->routeIs('layouts.berita') ? 'text-primary' : 'text-dark' }}" href="{{ route('layouts.berita') }}"> Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-bold" href="{{ route('layouts.ektrakulikuler') }}">Ekstrakulikuler</a>
+                    <a class="nav-link fw-bold {{ request()->routeIs('layouts.galeri') ? 'text-primary' : 'text-dark' }}" href="{{ route('layouts.galeri') }}">Galeri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold {{ request()->routeIs('layouts.ektrakulikuler') ? 'text-primary' : 'text-dark' }}" href="{{ route('layouts.ektrakulikuler') }}">Ekstrakulikuler</a>
                 </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
